@@ -1,151 +1,99 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Future Mobility: Windshield-Free Design Revolution</title>
+    <title>上海沃硕通讯科技有限公司 - 物联网整体解决方案专家</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Three.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <!-- GSAP for animations -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
-    
+
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        primary: '#3B82F6',
-                        secondary: '#10B981',
-                        accent: '#F59E0B',
-                        dark: '#1F2937',
-                        light: '#F3F4F6',
+                        primary: '#1E40AF',
+                        secondary: '#0F766E',
+                        accent: '#DC2626',
+                        dark: '#0F172A',
+                        light: '#F8FAFC',
+                        gold: '#F59E0B',
                     },
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        heading: ['Poppins', 'sans-serif'],
+                        sans: ['Microsoft YaHei', 'PingFang SC', 'Hiragino Sans GB', 'sans-serif'],
+                        heading: ['Microsoft YaHei', 'PingFang SC', 'Hiragino Sans GB', 'sans-serif'],
                     },
+                    fontSize: {
+                        '5xl': '3rem',
+                        '6xl': '3.75rem',
+                        '7xl': '4.5rem',
+                        '8xl': '6rem',
+                    },
+                    spacing: {
+                        '18': '4.5rem',
+                        '20': '5rem',
+                        '24': '6rem',
+                        '28': '7rem',
+                        '32': '8rem',
+                    }
                 }
             }
         }
     </script>
-    
+
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap');
-        
         html {
             scroll-behavior: smooth;
         }
-        
+
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Microsoft YaHei', 'PingFang SC', 'Hiragino Sans GB', sans-serif;
             overflow-x: hidden;
         }
-        
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Poppins', sans-serif;
-        }
-        
+
         .hero-gradient {
-            background: linear-gradient(135deg, #1F2937 0%, #0F172A 100%);
+            background: linear-gradient(135deg, #0F172A 0%, #1E40AF 50%, #0F766E 100%);
+            position: relative;
         }
-        
+
+        .hero-gradient::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
         .glass-effect {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
-        
+
         .card-hover {
             transition: all 0.3s ease;
         }
-        
+
         .card-hover:hover {
-            transform: translateY(-10px);
+            transform: translateY(-5px);
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
-        
-        .tech-card {
-            transition: all 0.3s ease;
-            border: 1px solid rgba(59, 130, 246, 0.2);
-        }
-        
-        .tech-card:hover {
-            border-color: #3B82F6;
-            box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
-        }
-        
-        .car-card {
-            perspective: 1000px;
-        }
-        
-        .car-card-inner {
-            transition: transform 0.8s;
-            transform-style: preserve-3d;
-        }
-        
-        .car-card:hover .car-card-inner {
-            transform: rotateY(10deg);
-        }
-        
-        .car-card-front, .car-card-back {
-            backface-visibility: hidden;
-        }
-        
-        .car-card-back {
-            transform: rotateY(180deg);
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-        
-        .car-card:hover .car-card-inner {
-            transform: rotateY(10deg);
-        }
-        
-        #car-model-container {
-            width: 100%;
-            height: 500px;
-            position: relative;
-        }
-        
-        .feature-icon {
-            transition: all 0.3s ease;
-        }
-        
-        .feature-card:hover .feature-icon {
-            transform: scale(1.2);
-            color: #3B82F6;
-        }
-        
-        .scroll-indicator {
-            animation: bounce 2s infinite;
-        }
-        
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0);
-            }
-            40% {
-                transform: translateY(-20px);
-            }
-            60% {
-                transform: translateY(-10px);
-            }
-        }
-        
+
         .nav-link {
             position: relative;
             transition: all 0.3s ease;
         }
-        
+
         .nav-link::after {
             content: '';
             position: absolute;
@@ -153,102 +101,155 @@
             height: 2px;
             bottom: -2px;
             left: 0;
-            background-color: #3B82F6;
+            background-color: #2563EB;
             transition: width 0.3s ease;
         }
-        
-        .nav-link:hover::after {
-            width: 100%;
-        }
-        
+
+        .nav-link:hover::after,
         .active-nav::after {
             width: 100%;
         }
-        
-        /* Responsive adjustments */
+
+        .news-item {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .news-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 8px;
+            height: 8px;
+            background-color: #2563EB;
+            border-radius: 50%;
+        }
+
+        .solution-card {
+            background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+            border: 1px solid #e2e8f0;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .solution-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(30, 64, 175, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .solution-card:hover::before {
+            left: 100%;
+        }
+
+        .solution-card:hover {
+            border-color: #1E40AF;
+            box-shadow: 0 20px 40px rgba(30, 64, 175, 0.15);
+            transform: translateY(-8px);
+        }
+
+        .section-title {
+            background: linear-gradient(135deg, #1E40AF 0%, #0F766E 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            /* 添加回退颜色以防渐变不支持 */
+            color: #1E40AF;
+            /* 确保文字完整显示 */
+            display: inline-block;
+            line-height: 1.1;
+            padding: 0.05em 0;
+            /* 防止文字被截断 */
+            overflow: visible;
+            white-space: nowrap;
+            /* 确保渐变覆盖整个文字 */
+            background-size: 100% 100%;
+            /* 添加一些额外的空间 */
+            margin: 0.1em 0;
+        }
+
+        /* 为不支持background-clip的浏览器提供回退 */
+        @supports not (-webkit-background-clip: text) {
+            .section-title {
+                background: none;
+                -webkit-text-fill-color: initial;
+                color: #1E40AF;
+            }
+        }
+
+        /* 移动端优化 */
+        @media (max-width: 768px) {
+            .section-title {
+                white-space: normal;
+                line-height: 1.2;
+            }
+        }
+
+        .premium-card {
+            background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+            border: 2px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+        }
+
+        .premium-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            padding: 2px;
+            background: linear-gradient(135deg, #1E40AF, #0F766E, #F59E0B);
+            border-radius: inherit;
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+        }
+
         @media (max-width: 768px) {
             .mobile-menu {
                 display: none;
             }
-            
+
             .mobile-menu.active {
                 display: flex;
             }
-            
-            #car-model-container {
-                height: 300px;
-            }
-        }
-        
-        /* Loading animation */
-        .loader {
-            border: 4px solid rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            border-top: 4px solid #3B82F6;
-            width: 30px;
-            height: 30px;
-            animation: spin 1s linear infinite;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        /* AI Chat Interface */
-        .chat-container {
-            max-height: 300px;
-            overflow-y: auto;
-        }
-        
-        .chat-message {
-            margin-bottom: 10px;
-            padding: 10px;
-            border-radius: 10px;
-        }
-        
-        .user-message {
-            background-color: #E2E8F0;
-            margin-left: 20%;
-            border-top-right-radius: 0;
-        }
-        
-        .ai-message {
-            background-color: #DBEAFE;
-            margin-right: 20%;
-            border-top-left-radius: 0;
-        }
-        
-        /* 3D Model Viewer */
-        .model-viewer {
-            width: 100%;
-            height: 400px;
-            background-color: rgba(15, 23, 42, 0.05);
-            border-radius: 10px;
-            overflow: hidden;
         }
     </style>
 </head>
+
 <body class="bg-gray-50">
     <!-- Navigation -->
-    <nav class="fixed top-0 left-0 w-full bg-white bg-opacity-90 backdrop-blur-md z-50 shadow-sm">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+    <nav
+        class="fixed top-0 left-0 w-full bg-white bg-opacity-95 backdrop-blur-md z-50 shadow-lg border-b border-gray-100">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center">
-                <span class="text-2xl font-bold text-primary">Future<span class="text-dark">Mobility</span></span>
+                <div class="flex items-center space-x-3">
+                    <div
+                        class="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
+                        <i class="fas fa-broadcast-tower text-white text-lg"></i>
+                    </div>
+                    <div>
+                        <span
+                            class="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">沃与通讯</span>
+                        <div class="text-xs text-gray-500 -mt-1">WOAND COMMUNICATION</div>
+                    </div>
+                </div>
             </div>
-            
+
             <!-- Desktop Navigation -->
             <div class="hidden md:flex items-center space-x-8">
-                <a href="#home" class="nav-link active-nav font-medium">Home</a>
-                <a href="#technology" class="nav-link font-medium">Technology</a>
-                <a href="#models" class="nav-link font-medium">Models</a>
-                <a href="#features" class="nav-link font-medium">Features</a>
-                <a href="#contact" class="nav-link font-medium">Contact</a>
-                <button id="ai-assistant-btn" class="bg-primary hover:bg-blue-600 text-white px-4 py-2 rounded-full flex items-center transition-all">
-                    <i class="fas fa-robot mr-2"></i> AI Assistant
-                </button>
+                <a href="#home" class="nav-link active-nav font-medium">首页</a>
+                <a href="#about" class="nav-link font-medium">公司介绍</a>
+                <a href="#news" class="nav-link font-medium">动态资讯</a>
+                <a href="#solutions" class="nav-link font-medium">设计与方案</a>
+                <a href="#contact" class="nav-link font-medium">联系我们</a>
             </div>
-            
+
             <!-- Mobile Menu Button -->
             <div class="md:hidden">
                 <button id="mobile-menu-btn" class="text-dark focus:outline-none">
@@ -256,524 +257,550 @@
                 </button>
             </div>
         </div>
-        
+
         <!-- Mobile Navigation -->
         <div id="mobile-menu" class="mobile-menu flex-col space-y-4 p-4 bg-white shadow-lg md:hidden">
-            <a href="#home" class="block py-2 px-4 hover:bg-gray-100 rounded">Home</a>
-            <a href="#technology" class="block py-2 px-4 hover:bg-gray-100 rounded">Technology</a>
-            <a href="#models" class="block py-2 px-4 hover:bg-gray-100 rounded">Models</a>
-            <a href="#features" class="block py-2 px-4 hover:bg-gray-100 rounded">Features</a>
-            <a href="#contact" class="block py-2 px-4 hover:bg-gray-100 rounded">Contact</a>
-            <button id="mobile-ai-btn" class="bg-primary hover:bg-blue-600 text-white px-4 py-2 rounded-full flex items-center justify-center transition-all w-full">
-                <i class="fas fa-robot mr-2"></i> AI Assistant
-            </button>
+            <a href="#home" class="block py-2 px-4 hover:bg-gray-100 rounded">首页</a>
+            <a href="#about" class="block py-2 px-4 hover:bg-gray-100 rounded">公司介绍</a>
+            <a href="#news" class="block py-2 px-4 hover:bg-gray-100 rounded">动态资讯</a>
+            <a href="#solutions" class="block py-2 px-4 hover:bg-gray-100 rounded">设计与方案</a>
+            <a href="#contact" class="block py-2 px-4 hover:bg-gray-100 rounded">联系我们</a>
         </div>
     </nav>
-    
-    <!-- AI Chat Modal -->
-    <div id="ai-chat-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden">
-        <div class="bg-white rounded-lg w-full max-w-md mx-4 overflow-hidden">
-            <div class="bg-primary text-white p-4 flex justify-between items-center">
-                <div class="flex items-center">
-                    <i class="fas fa-robot mr-2"></i>
-                    <h3 class="font-bold">Future Mobility AI Assistant</h3>
-                </div>
-                <button id="close-chat-btn" class="text-white hover:text-gray-200 focus:outline-none">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="chat-container p-4" id="chat-messages">
-                <div class="chat-message ai-message">
-                    <p>Hello! I'm your AI assistant for Future Mobility. How can I help you today?</p>
-                </div>
-            </div>
-            <div class="p-4 border-t">
-                <div class="flex">
-                    <input type="text" id="chat-input" class="flex-1 border border-gray-300 rounded-l-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Type your message...">
-                    <button id="send-message-btn" class="bg-primary hover:bg-blue-600 text-white px-4 py-2 rounded-r-lg transition-all">
-                        <i class="fas fa-paper-plane"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-    
+
     <!-- Hero Section -->
     <section id="home" class="hero-gradient min-h-screen flex items-center pt-16">
         <div class="container mx-auto px-4 py-16">
             <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 text-white mb-10 md:mb-0">
-                    <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">Windshield-Free<br>Future of Mobility</h1>
-                    <p class="text-xl text-gray-300 mb-8">Experience the revolutionary design that redefines driving with panoramic AR domes, AI-powered navigation, and gesture control.</p>
-                    <div class="flex flex-wrap gap-4">
-                        <a href="#models" class="bg-primary hover:bg-blue-600 text-white px-8 py-3 rounded-full font-medium transition-all flex items-center">
-                            Explore Models <i class="fas fa-arrow-right ml-2"></i>
+                <div class="md:w-1/2 text-white mb-16 md:mb-0">
+                    <div class="mb-6">
+                        <span
+                            class="inline-block px-4 py-2 bg-white bg-opacity-20 rounded-full text-sm font-medium backdrop-blur-sm border border-white border-opacity-30 mb-6">
+                            <i class="fas fa-star text-gold mr-2"></i>物联网领域领先企业
+                        </span>
+                    </div>
+                    <h1 class="text-5xl md:text-7xl font-bold mb-8 leading-tight">
+                        <span class="block text-white">智联未来</span>
+                        <span class="block text-4xl md:text-6xl text-gray-200 font-semibold">物联网整体解决方案专家</span>
+                    </h1>
+                    <p class="text-xl md:text-2xl text-gray-200 mb-12 leading-relaxed max-w-2xl">
+                        上海沃硕通讯科技有限公司专注于物联网、智能家居、穿戴设备等领域，以移动通信和近距离通讯为核心，为全球客户提供专业的整体解决方案。
+                    </p>
+                    <div class="flex flex-wrap gap-6">
+                        <a href="#solutions"
+                            class="group bg-gradient-to-r from-gold to-yellow-500 hover:from-yellow-500 hover:to-gold text-white px-10 py-4 rounded-full font-bold text-lg transition-all duration-300 flex items-center shadow-2xl hover:shadow-yellow-500/25 hover:scale-105">
+                            探索解决方案
+                            <i class="fas fa-arrow-right ml-3 group-hover:translate-x-1 transition-transform"></i>
                         </a>
-                        <a href="#technology" class="bg-transparent border-2 border-white hover:bg-white hover:text-dark px-8 py-3 rounded-full font-medium transition-all">
-                            Learn About Technology
+                        <a href="#about"
+                            class="bg-transparent border-2 border-white hover:bg-white hover:text-primary px-10 py-4 rounded-full font-bold text-lg transition-all duration-300 backdrop-blur-sm hover:scale-105">
+                            了解我们
                         </a>
                     </div>
-                </div>
-                <div class="md:w-1/2">
-                    <div class="relative">
-                        <div class="absolute -inset-1 bg-gradient-to-r from-blue-500 to-green-500 rounded-2xl blur opacity-75"></div>
-                        <div class="relative bg-dark rounded-2xl overflow-hidden">
-                            <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/232de06df7094fc99af1b9272c974506~tplv-a9rns2rl98-image.image?rcl=20251028160452F9649B55702E9DBD65E5&rk3s=8e244e95&rrcfp=f06b921b&x-expires=1764230724&x-signature=4rAafIQT5PXGa%2FBIVhQhNFllha8%3D" alt="Future Car Design" class="w-full h-auto rounded-2xl">
+
+                    <!-- 统计数据 -->
+                    <div class="grid grid-cols-3 gap-8 mt-16 pt-8 border-t border-white border-opacity-20">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-gold mb-2">10+</div>
+                            <div class="text-sm text-gray-300">年行业经验</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-gold mb-2">500+</div>
+                            <div class="text-sm text-gray-300">成功案例</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-gold mb-2">50+</div>
+                            <div class="text-sm text-gray-300">合作伙伴</div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white text-center">
-                <p class="mb-2">Scroll to explore</p>
-                <i class="fas fa-chevron-down scroll-indicator"></i>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Technology Section -->
-    <section id="technology" class="py-20 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-bold mb-4">Core Technologies</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Our windshield-free design relies on three revolutionary technologies that work together to create a seamless driving experience.</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Technology 1 -->
-                <div class="tech-card bg-white rounded-xl p-8 shadow-lg">
-                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6 mx-auto">
-                        <i class="fas fa-vr-cardboard text-2xl text-primary"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4 text-center">Panoramic AR Dome</h3>
-                    <p class="text-gray-600 text-center">The roof and windshield area are composed of a single piece of smart glass that displays the external environment, navigation information, and social content. It can adjust transparency as needed to create a private space.</p>
-                </div>
-                
-                <!-- Technology 2 -->
-                <div class="tech-card bg-white rounded-xl p-8 shadow-lg">
-                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6 mx-auto">
-                        <i class="fas fa-brain text-2xl text-secondary"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4 text-center">Sensor Fusion & AI</h3>
-                    <p class="text-gray-600 text-center">Sensors throughout the vehicle (lidar, radar, cameras) create a 360-degree environment model far beyond human vision. AI is responsible for path planning and hazard warning.</p>
-                </div>
-                
-                <!-- Technology 3 -->
-                <div class="tech-card bg-white rounded-xl p-8 shadow-lg">
-                    <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mb-6 mx-auto">
-                        <i class="fas fa-hand-sparkles text-2xl text-accent"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4 text-center">By-wire Gesture Control</h3>
-                    <p class="text-gray-600 text-center">Traditional steering wheel is eliminated. Driving mode switching and precise control are performed through gestures, voice, and touch panels.</p>
-                </div>
-            </div>
-            
-            <!-- 3D Model Viewer -->
-            <div class="mt-20">
-                <div class="text-center mb-10">
-                    <h3 class="text-2xl font-bold mb-4">Interactive Technology Demo</h3>
-                    <p class="text-gray-600 max-w-2xl mx-auto">Explore our technology through this interactive 3D model.</p>
-                </div>
-                <div class="model-viewer" id="tech-demo-viewer">
-                    <!-- Three.js will render here -->
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Models Section -->
-    <section id="models" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-bold mb-4">Future Vehicle Models</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Discover our five revolutionary vehicle concepts designed for different lifestyles and environments.</p>
-            </div>
-            
-            <!-- Model 1: Aeris -->
-            <div class="mb-24">
-                <div class="flex flex-col md:flex-row items-center">
-                    <div class="md:w-1/2 mb-10 md:mb-0">
-                        <div class="car-card">
-                            <div class="car-card-inner">
-                                <div class="car-card-front">
-                                    <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/60bf1ab2048947fa9c71a2c28caba342~tplv-a9rns2rl98-image.image?rcl=20251028160452F9649B55702E9DBD65E5&rk3s=8e244e95&rrcfp=f06b921b&x-expires=1764230706&x-signature=y79GVHAfXs2j16ZOD9KzB4aKTxs%3D" alt="Aeris - Urban Commuter Capsule" class="w-full h-auto rounded-xl shadow-xl">
+                <div class="md:w-1/2 relative">
+                    <div class="relative z-10">
+                        <!-- 主要展示卡片 -->
+                        <div class="premium-card rounded-3xl overflow-hidden p-8 mb-6">
+                            <div class="text-center mb-8">
+                                <h3 class="text-2xl font-bold text-gray-800 mb-2">核心业务领域</h3>
+                                <p class="text-gray-600">专业的物联网解决方案提供商</p>
+                            </div>
+                            <div class="grid grid-cols-2 gap-6">
+                                <div
+                                    class="group text-center p-6 bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl hover:from-blue-100 hover:to-blue-200 transition-all duration-300 cursor-pointer">
+                                    <div
+                                        class="w-16 h-16 bg-gradient-to-br from-primary to-blue-600 rounded-full flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform">
+                                        <i class="fas fa-wifi text-2xl text-white"></i>
+                                    </div>
+                                    <p class="font-bold text-gray-800">物联网</p>
+                                    <p class="text-sm text-gray-600 mt-1">IoT Solutions</p>
+                                </div>
+                                <div
+                                    class="group text-center p-6 bg-gradient-to-br from-green-50 to-green-100 rounded-xl hover:from-green-100 hover:to-green-200 transition-all duration-300 cursor-pointer">
+                                    <div
+                                        class="w-16 h-16 bg-gradient-to-br from-secondary to-green-600 rounded-full flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform">
+                                        <i class="fas fa-home text-2xl text-white"></i>
+                                    </div>
+                                    <p class="font-bold text-gray-800">智能家居</p>
+                                    <p class="text-sm text-gray-600 mt-1">Smart Home</p>
+                                </div>
+                                <div
+                                    class="group text-center p-6 bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl hover:from-purple-100 hover:to-purple-200 transition-all duration-300 cursor-pointer">
+                                    <div
+                                        class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform">
+                                        <i class="fas fa-mobile-alt text-2xl text-white"></i>
+                                    </div>
+                                    <p class="font-bold text-gray-800">穿戴设备</p>
+                                    <p class="text-sm text-gray-600 mt-1">Wearables</p>
+                                </div>
+                                <div
+                                    class="group text-center p-6 bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl hover:from-yellow-100 hover:to-yellow-200 transition-all duration-300 cursor-pointer">
+                                    <div
+                                        class="w-16 h-16 bg-gradient-to-br from-gold to-yellow-600 rounded-full flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform">
+                                        <i class="fas fa-gamepad text-2xl text-white"></i>
+                                    </div>
+                                    <p class="font-bold text-gray-800">儿童玩具</p>
+                                    <p class="text-sm text-gray-600 mt-1">Smart Toys</p>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="md:w-1/2 md:pl-16">
-                        <h3 class="text-3xl font-bold mb-4">Aeris</h3>
-                        <h4 class="text-xl text-primary font-medium mb-6">Urban Commuter Capsule</h4>
-                        <p class="text-gray-600 mb-6">Aeris features a rounded, compact, and亲和 design like a smooth pebble. It offers极致 space utilization and provides a quiet resting cabin on the move.</p>
-                        <div class="mb-8">
-                            <h5 class="font-bold mb-2">Key Features:</h5>
-                            <ul class="list-disc list-inside text-gray-600 space-y-1">
-                                <li>Panoramic AR dome with adjustable transparency</li>
-                                <li>Butterfly doors for easy access</li>
-                                <li>Noise-canceling interior</li>
-                                <li>Autonomous urban navigation</li>
-                                <li>Minimalist, comfortable seating</li>
-                            </ul>
+
+                        <!-- 浮动装饰元素 -->
+                        <div
+                            class="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-gold to-yellow-500 rounded-full opacity-20 animate-pulse">
                         </div>
-                        <button class="view-gallery-btn bg-primary hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-medium transition-all flex items-center" data-model="aeris">
-                            View Gallery <i class="fas fa-images ml-2"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Model 2: Vanguard -->
-            <div class="mb-24">
-                <div class="flex flex-col md:flex-row-reverse items-center">
-                    <div class="md:w-1/2 mb-10 md:mb-0">
-                        <div class="car-card">
-                            <div class="car-card-inner">
-                                <div class="car-card-front">
-                                    <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/791eb6958e2947ed99467c49729fb319~tplv-a9rns2rl98-image.image?rcl=20251028160452F9649B55702E9DBD65E5&rk3s=8e244e95&rrcfp=f06b921b&x-expires=1764230714&x-signature=f60UOSUzN%2B4ke7v5uW51WQLVmeU%3D" alt="Vanguard - All-Terrain Explorer" class="w-full h-auto rounded-xl shadow-xl">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="md:w-1/2 md:pr-16">
-                        <h3 class="text-3xl font-bold mb-4">Vanguard</h3>
-                        <h4 class="text-xl text-secondary font-medium mb-6">All-Terrain Explorer</h4>
-                        <p class="text-gray-600 mb-6">Vanguard features an angular, rugged, modular design like an armored reconnaissance vehicle. It can conquer any harsh environment without the need for visual windows.</p>
-                        <div class="mb-8">
-                            <h5 class="font-bold mb-2">Key Features:</h5>
-                            <ul class="list-disc list-inside text-gray-600 space-y-1">
-                                <li>360-degree sensor array for all-terrain navigation</li>
-                                <li>Modular sensor modules (weather station, geological scanner)</li>
-                                <li>Advanced suspension system for rough terrain</li>
-                                <li>Reinforced armor and self-healing coating</li>
-                                <li>Terrain analysis and path planning AI</li>
-                            </ul>
-                        </div>
-                        <button class="view-gallery-btn bg-secondary hover:bg-green-600 text-white px-6 py-3 rounded-lg font-medium transition-all flex items-center" data-model="vanguard">
-                            View Gallery <i class="fas fa-images ml-2"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Model 3: Synapse -->
-            <div class="mb-24">
-                <div class="flex flex-col md:flex-row items-center">
-                    <div class="md:w-1/2 mb-10 md:mb-0">
-                        <div class="car-card">
-                            <div class="car-card-inner">
-                                <div class="car-card-front">
-                                    <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/232de06df7094fc99af1b9272c974506~tplv-a9rns2rl98-image.image?rcl=20251028160452F9649B55702E9DBD65E5&rk3s=8e244e95&rrcfp=f06b921b&x-expires=1764230724&x-signature=4rAafIQT5PXGa%2FBIVhQhNFllha8%3D" alt="Synapse - High-Speed Interconnected梭形车" class="w-full h-auto rounded-xl shadow-xl">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="md:w-1/2 md:pl-16">
-                        <h3 class="text-3xl font-bold mb-4">Synapse</h3>
-                        <h4 class="text-xl text-accent font-medium mb-6">High-Speed Interconnected梭形车</h4>
-                        <p class="text-gray-600 mb-6">Synapse features a streamlined, low-slung, sharp design like a bullet or stealth fighter. Designed for high-speed maglev roads, it offers extreme speed and seamless connectivity.</p>
-                        <div class="mb-8">
-                            <h5 class="font-bold mb-2">Key Features:</h5>
-                            <ul class="list-disc list-inside text-gray-600 space-y-1">
-                                <li>Active aerodynamics for maximum efficiency</li>
-                                <li>Vehicle-to-vehicle communication system</li>
-                                <li>Augmented reality heads-up display</li>
-                                <li>Adaptive color-changing body panels</li>
-                                <li>Autonomous platooning capability</li>
-                            </ul>
-                        </div>
-                        <button class="view-gallery-btn bg-accent hover:bg-yellow-600 text-white px-6 py-3 rounded-lg font-medium transition-all flex items-center" data-model="synapse">
-                            View Gallery <i class="fas fa-images ml-2"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Model 4: Nexus -->
-            <div class="mb-24">
-                <div class="flex flex-col md:flex-row-reverse items-center">
-                    <div class="md:w-1/2 mb-10 md:mb-0">
-                        <div class="car-card">
-                            <div class="car-card-inner">
-                                <div class="car-card-front">
-                                    <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/8c58bef362de4e4487fae59b98670f9a~tplv-a9rns2rl98-image.image?rcl=20251028160452F9649B55702E9DBD65E5&rk3s=8e244e95&rrcfp=f06b921b&x-expires=1764230732&x-signature=nMdp3%2Fsd4nQAIhNvrI0PHr42%2BZA%3D" alt="Nexus - Public Service & Sharing Module" class="w-full h-auto rounded-xl shadow-xl">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="md:w-1/2 md:pr-16">
-                        <h3 class="text-3xl font-bold mb-4">Nexus</h3>
-                        <h4 class="text-xl text-blue-800 font-medium mb-6">Public Service & Sharing Module</h4>
-                        <p class="text-gray-600 mb-6">Nexus features a square, transparent, multi-functional design like a mobile box. It offers variable space for urban logistics, retail, healthcare, and more.</p>
-                        <div class="mb-8">
-                            <h5 class="font-bold mb-2">Key Features:</h5>
-                            <ul class="list-disc list-inside text-gray-600 space-y-1">
-                                <li>Transformable interior space for multiple uses</li>
-                                <li>High-resolution interactive exterior screens</li>
-                                <li>Autonomous delivery and service capabilities</li>
-                                <li>Modular interface for quick function changes</li>
-                                <li>Drone integration for aerial delivery</li>
-                            </ul>
-                        </div>
-                        <button class="view-gallery-btn bg-blue-800 hover:bg-blue-900 text-white px-6 py-3 rounded-lg font-medium transition-all flex items-center" data-model="nexus">
-                            View Gallery <i class="fas fa-images ml-2"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Model 5: Oasis -->
-            <div class="mb-10">
-                <div class="flex flex-col md:flex-row items-center">
-                    <div class="md:w-1/2 mb-10 md:mb-0">
-                        <div class="car-card">
-                            <div class="car-card-inner">
-                                <div class="car-card-front">
-                                    <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/0b9ccfe6d334448da0f6e976e808fea6~tplv-a9rns2rl98-image.image?rcl=20251028160452F9649B55702E9DBD65E5&rk3s=8e244e95&rrcfp=f06b921b&x-expires=1764230747&x-signature=nQKH%2BIN2H1TJjKKrIVklt6N6cjU%3D" alt="Oasis - Personal Leisure Rover" class="w-full h-auto rounded-xl shadow-xl">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="md:w-1/2 md:pl-16">
-                        <h3 class="text-3xl font-bold mb-4">Oasis</h3>
-                        <h4 class="text-xl text-green-700 font-medium mb-6">Personal Leisure Rover</h4>
-                        <p class="text-gray-600 mb-6">Oasis features an organic, soft,生活化 design like a mobile greenhouse or small wooden house. It offers slow living, integration with nature, and serves as a walking private garden.</p>
-                        <div class="mb-8">
-                            <h5 class="font-bold mb-2">Key Features:</h5>
-                            <ul class="list-disc list-inside text-gray-600 space-y-1">
-                                <li>Integrated living plants and small ecosystem</li>
-                                <li>Fully transparent panoramic dome</li>
-                                <li>Wooden and natural material interior</li>
-                                <li>Extended outdoor platform for activities</li>
-                                <li>Nature-inspired AR displays</li>
-                            </ul>
-                        </div>
-                        <button class="view-gallery-btn bg-green-700 hover:bg-green-800 text-white px-6 py-3 rounded-lg font-medium transition-all flex items-center" data-model="oasis">
-                            View Gallery <i class="fas fa-images ml-2"></i>
-                        </button>
+                        <div class="absolute -bottom-8 -left-8 w-32 h-32 bg-gradient-to-br from-primary to-secondary rounded-full opacity-10 animate-pulse"
+                            style="animation-delay: 1s;"></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    
-    <!-- Features Section -->
-    <section id="features" class="py-20 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-bold mb-4">Revolutionary Features</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Explore the innovative features that make our windshield-free design a game-changer in mobility.</p>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
+        <!-- 背景装饰 -->
+        <div class="absolute top-0 left-0 w-full h-full opacity-5">
+            <div class="absolute top-20 left-10 w-64 h-64 bg-primary rounded-full blur-3xl"></div>
+            <div class="absolute bottom-20 right-10 w-80 h-80 bg-secondary rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-6xl font-bold mb-6 section-title leading-tight">引领物联网创新</h2>
+                <p class="text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+                    <span class="text-gold font-bold">诚信</span> ·
+                    <span class="text-primary font-bold">专注</span> ·
+                    <span class="text-secondary font-bold">求实</span> ·
+                    <span class="text-purple-600 font-bold">拓新</span>
+                </p>
             </div>
-            
+
+            <div class="max-w-4xl mx-auto">
+                <!-- 主要介绍卡片 -->
+                <div class="premium-card rounded-3xl p-12 mb-16 text-center">
+                    <div class="max-w-4xl mx-auto">
+                        <h3 class="text-3xl font-bold text-gray-800 mb-8">企业使命</h3>
+                        <p class="text-xl leading-relaxed text-gray-700 mb-8">
+                            上海沃硕通讯科技有限公司是一家专业的物联网解决方案提供商，专注于<span class="text-primary font-bold">物联网</span>、<span
+                                class="text-secondary font-bold">智能家居</span>、<span
+                                class="text-purple-600 font-bold">穿戴设备</span>、<span
+                                class="text-gold font-bold">儿童玩具</span>等领域的研发与创新。
+                        </p>
+                        <p class="text-xl leading-relaxed text-gray-700 mb-8">
+                            我们以<span class="text-primary font-bold">移动通信</span>和<span
+                                class="text-secondary font-bold">近距离通讯</span>为核心技术，秉承"诚信 专注 求实
+                            拓新"的企业理念，以客户需求为中心，追求卓越，不断进步，实现互利共赢。
+                        </p>
+                        <div class="bg-gradient-to-r from-primary to-secondary text-white rounded-2xl p-8 mb-8">
+                            <h4 class="text-2xl font-bold mb-4">技术实力</h4>
+                            <p class="text-lg leading-relaxed">
+                                公司拥有一支年轻、高效、优秀且经验丰富的研发团队，不断开拓物联网行业应用市场，涵盖消费电子、快递物流、零售业、工业控制、室内定位等多个领域。
+                            </p>
+                        </div>
+                        <div class="text-center">
+                            <div
+                                class="inline-block bg-gradient-to-r from-gold to-yellow-500 text-white px-8 py-4 rounded-full font-bold text-lg">
+                                <i class="fas fa-target mr-2"></i>
+                                致力于成为全球无线通讯及物联网领域整体解决方案与服务的优秀企业
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 企业理念展示 -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div
+                        class="group text-center p-8 bg-gradient-to-br from-white to-blue-50 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-blue-100">
+                        <div
+                            class="w-20 h-20 bg-gradient-to-br from-primary to-blue-600 rounded-full flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform shadow-lg">
+                            <i class="fas fa-handshake text-3xl text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 text-primary">诚信</h3>
+                        <p class="text-gray-600 text-lg">以诚待人，信守承诺</p>
+                        <div
+                            class="mt-4 h-1 bg-gradient-to-r from-primary to-blue-600 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform">
+                        </div>
+                    </div>
+
+                    <div
+                        class="group text-center p-8 bg-gradient-to-br from-white to-green-50 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-green-100">
+                        <div
+                            class="w-20 h-20 bg-gradient-to-br from-secondary to-green-600 rounded-full flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform shadow-lg">
+                            <i class="fas fa-bullseye text-3xl text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 text-secondary">专注</h3>
+                        <p class="text-gray-600 text-lg">专业专注，精益求精</p>
+                        <div
+                            class="mt-4 h-1 bg-gradient-to-r from-secondary to-green-600 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform">
+                        </div>
+                    </div>
+
+                    <div
+                        class="group text-center p-8 bg-gradient-to-br from-white to-purple-50 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-purple-100">
+                        <div
+                            class="w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform shadow-lg">
+                            <i class="fas fa-cogs text-3xl text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 text-purple-600">求实</h3>
+                        <p class="text-gray-600 text-lg">实事求是，务实进取</p>
+                        <div
+                            class="mt-4 h-1 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform">
+                        </div>
+                    </div>
+
+                    <div
+                        class="group text-center p-8 bg-gradient-to-br from-white to-yellow-50 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-yellow-100">
+                        <div
+                            class="w-20 h-20 bg-gradient-to-br from-gold to-yellow-600 rounded-full flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform shadow-lg">
+                            <i class="fas fa-rocket text-3xl text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 text-gold">拓新</h3>
+                        <p class="text-gray-600 text-lg">开拓创新，与时俱进</p>
+                        <div
+                            class="mt-4 h-1 bg-gradient-to-r from-gold to-yellow-600 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section id="news" class="py-24 bg-gradient-to-br from-gray-50 to-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-6xl font-bold mb-6 section-title leading-tight">前沿资讯</h2>
+                <p class="text-2xl text-gray-600 max-w-4xl mx-auto">关注行业动态，把握发展趋势，引领物联网创新未来</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white rounded-2xl p-8 shadow-lg">
+                    <div class="space-y-6">
+                        <div class="news-item">
+                            <a href="http://finance.ifeng.com/a/20140718/12748172_0.shtml" target="_blank"
+                                class="block hover:text-primary transition-colors">
+                                <h3 class="text-lg font-medium mb-2">IDC：2016年物联网市场规模将达2.9兆美元</h3>
+                                <p class="text-gray-600 text-sm">了解物联网市场的最新发展趋势和规模预测</p>
+                            </a>
+                        </div>
+
+                        <div class="news-item">
+                            <a href="http://tech.qq.com/a/20140717/033615.htm?flashget_tech_jsp" target="_blank"
+                                class="block hover:text-primary transition-colors">
+                                <h3 class="text-lg font-medium mb-2">你准备好了吗？万亿规模的物联网正"敲门"</h3>
+                                <p class="text-gray-600 text-sm">探讨物联网产业的巨大商机和发展前景</p>
+                            </a>
+                        </div>
+
+                        <div class="news-item">
+                            <a href="http://www.chinaz.com/manage/2014/0718/360202.shtml" target="_blank"
+                                class="block hover:text-primary transition-colors">
+                                <h3 class="text-lg font-medium mb-2">如何有效做好智能家居产业的推广？</h3>
+                                <p class="text-gray-600 text-sm">智能家居产业推广策略和市场营销方法</p>
+                            </a>
+                        </div>
+
+                        <div class="news-item">
+                            <a href="http://news.rfidworld.com.cn/2014_07/c11b33784dbfc717.html" target="_blank"
+                                class="block hover:text-primary transition-colors">
+                                <h3 class="text-lg font-medium mb-2">群雄逐鹿聚集可穿戴 企业如何从中寻觅掘金点?</h3>
+                                <p class="text-gray-600 text-sm">可穿戴设备市场分析和商业机会探索</p>
+                            </a>
+                        </div>
+
+                        <div class="news-item">
+                            <a href="http://lights.ofweek.com/2014-07/ART-220001-8470-28846627.html" target="_blank"
+                                class="block hover:text-primary transition-colors">
+                                <h3 class="text-lg font-medium mb-2">Sub-GHz/Wi-Fi/BLE/ZigBee 谁更适合物联网？</h3>
+                                <p class="text-gray-600 text-sm">物联网通信技术对比分析和应用场景</p>
+                            </a>
+                        </div>
+
+                        <div class="news-item">
+                            <a href="http://lights.ofweek.com/2014-06/ART-220001-8470-28835086.html" target="_blank"
+                                class="block hover:text-primary transition-colors">
+                                <h3 class="text-lg font-medium mb-2">ZigBee、Wi-Fi、BLE各领风骚 谁将拔得智能照明控制头筹</h3>
+                                <p class="text-gray-600 text-sm">智能照明控制技术发展趋势和竞争格局</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section id="solutions" class="py-24 bg-gradient-to-br from-white to-gray-50 relative overflow-hidden">
+        <!-- 背景装饰 -->
+        <div
+            class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-primary to-transparent opacity-5 rounded-full blur-3xl">
+        </div>
+        <div
+            class="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-secondary to-transparent opacity-5 rounded-full blur-3xl">
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-6xl font-bold mb-6 section-title leading-tight">技术方案</h2>
+                <p class="text-2xl text-gray-600 max-w-4xl mx-auto">专业的物联网解决方案，满足不同行业需求，引领智能化转型</p>
+            </div>
+
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Feature 1 -->
-                <div class="feature-card bg-white rounded-xl p-6 shadow-lg">
-                    <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-glass-cheers feature-icon text-2xl text-primary"></i>
+                <!-- 通信模块 -->
+                <div class="solution-card rounded-2xl p-8 h-auto min-h-[320px] flex flex-col">
+                    <div
+                        class="w-20 h-20 bg-gradient-to-br from-primary to-blue-600 rounded-full flex items-center justify-center mb-6 shadow-lg">
+                        <i class="fas fa-signal text-3xl text-white"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Unobstructed View</h3>
-                    <p class="text-gray-600">The panoramic AR dome provides a 360-degree view of the surroundings without any physical obstructions, enhancing the driving experience.</p>
+                    <h3 class="text-2xl font-bold mb-6 text-primary">通信模块</h3>
+                    <ul class="text-gray-700 space-y-3 flex-grow text-lg">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-primary mr-3"></i>2G/3G/4G通信模块
+                        </li>
+                        <li class="flex items-center"><i
+                                class="fas fa-check-circle text-primary mr-3"></i>Bluetooth模块(BLE/BT5.0)</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-primary mr-3"></i>WiFi模块</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-primary mr-3"></i>LORA模块</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-primary mr-3"></i>NB-IOT模块</li>
+                    </ul>
                 </div>
-                
-                <!-- Feature 2 -->
-                <div class="feature-card bg-white rounded-xl p-6 shadow-lg">
-                    <div class="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-shield-alt feature-icon text-2xl text-secondary"></i>
+
+                <!-- 传感器方案 -->
+                <div class="solution-card rounded-2xl p-8 h-auto min-h-[320px] flex flex-col">
+                    <div
+                        class="w-20 h-20 bg-gradient-to-br from-secondary to-green-600 rounded-full flex items-center justify-center mb-6 shadow-lg">
+                        <i class="fas fa-microchip text-3xl text-white"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Enhanced Safety</h3>
-                    <p class="text-gray-600">AI-powered sensors detect potential hazards and provide real-time warnings, significantly improving safety on the road.</p>
+                    <h3 class="text-2xl font-bold mb-6 text-secondary">传感器方案</h3>
+                    <ul class="text-gray-700 space-y-3 flex-grow text-lg">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-secondary mr-3"></i>温湿度传感器</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-secondary mr-3"></i>运动传感器</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-secondary mr-3"></i>光照传感器</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-secondary mr-3"></i>气体传感器</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-secondary mr-3"></i>GPS定位模块
+                        </li>
+                    </ul>
                 </div>
-                
-                <!-- Feature 3 -->
-                <div class="feature-card bg-white rounded-xl p-6 shadow-lg">
-                    <div class="w-14 h-14 bg-yellow-100 rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-map-marked-alt feature-icon text-2xl text-accent"></i>
+
+                <!-- 智能家居 -->
+                <div class="solution-card rounded-2xl p-8 h-auto min-h-[320px] flex flex-col">
+                    <div
+                        class="w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center mb-6 shadow-lg">
+                        <i class="fas fa-home text-3xl text-white"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Intuitive Navigation</h3>
-                    <p class="text-gray-600">Augmented reality navigation overlays directions directly onto the AR dome, making it easier than ever to reach your destination.</p>
+                    <h3 class="text-2xl font-bold mb-6 text-purple-600">智能家居</h3>
+                    <ul class="text-gray-700 space-y-3 flex-grow text-lg">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-purple-600 mr-3"></i>智能照明控制
+                        </li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-purple-600 mr-3"></i>智能安防系统
+                        </li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-purple-600 mr-3"></i>环境监控</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-purple-600 mr-3"></i>家电控制</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-purple-600 mr-3"></i>语音交互</li>
+                    </ul>
                 </div>
-                
-                <!-- Feature 4 -->
-                <div class="feature-card bg-white rounded-xl p-6 shadow-lg">
-                    <div class="w-14 h-14 bg-red-100 rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-hand-paper feature-icon text-2xl text-red-500"></i>
+
+                <!-- 工业物联网 -->
+                <div class="solution-card rounded-2xl p-8 h-auto min-h-[320px] flex flex-col">
+                    <div
+                        class="w-20 h-20 bg-gradient-to-br from-accent to-red-600 rounded-full flex items-center justify-center mb-6 shadow-lg">
+                        <i class="fas fa-industry text-3xl text-white"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Gesture Control</h3>
-                    <p class="text-gray-600">Control various vehicle functions with intuitive hand gestures, eliminating the need for physical controls and enhancing the futuristic experience.</p>
+                    <h3 class="text-2xl font-bold mb-6 text-accent">工业物联网</h3>
+                    <ul class="text-gray-700 space-y-3 flex-grow text-lg">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-accent mr-3"></i>设备监控</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-accent mr-3"></i>数据采集</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-accent mr-3"></i>远程控制</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-accent mr-3"></i>预测维护</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-accent mr-3"></i>生产优化</li>
+                    </ul>
                 </div>
-                
-                <!-- Feature 5 -->
-                <div class="feature-card bg-white rounded-xl p-6 shadow-lg">
-                    <div class="w-14 h-14 bg-purple-100 rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-sync-alt feature-icon text-2xl text-purple-500"></i>
+
+                <!-- 穿戴设备 -->
+                <div class="solution-card rounded-2xl p-8 h-auto min-h-[320px] flex flex-col">
+                    <div
+                        class="w-20 h-20 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-full flex items-center justify-center mb-6 shadow-lg">
+                        <i class="fas fa-watch text-3xl text-white"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Adaptive Transparency</h3>
-                    <p class="text-gray-600">The smart glass can adjust its transparency on demand, providing privacy when needed or an open view of the surroundings.</p>
+                    <h3 class="text-2xl font-bold mb-6 text-yellow-600">穿戴设备</h3>
+                    <ul class="text-gray-700 space-y-3 flex-grow text-lg">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-yellow-600 mr-3"></i>健康监测</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-yellow-600 mr-3"></i>运动追踪</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-yellow-600 mr-3"></i>定位服务</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-yellow-600 mr-3"></i>消息提醒</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-yellow-600 mr-3"></i>语音通话</li>
+                    </ul>
                 </div>
-                
-                <!-- Feature 6 -->
-                <div class="feature-card bg-white rounded-xl p-6 shadow-lg">
-                    <div class="w-14 h-14 bg-indigo-100 rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-wifi feature-icon text-2xl text-indigo-500"></i>
+
+                <!-- 儿童玩具 -->
+                <div class="solution-card rounded-2xl p-8 h-auto min-h-[320px] flex flex-col">
+                    <div
+                        class="w-20 h-20 bg-gradient-to-br from-pink-500 to-pink-600 rounded-full flex items-center justify-center mb-6 shadow-lg">
+                        <i class="fas fa-gamepad text-3xl text-white"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Seamless Connectivity</h3>
-                    <p class="text-gray-600">Stay connected with the world around you through integrated 5G connectivity, enabling real-time updates and entertainment.</p>
+                    <h3 class="text-2xl font-bold mb-6 text-pink-600">儿童玩具</h3>
+                    <ul class="text-gray-700 space-y-3 flex-grow text-lg">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-pink-600 mr-3"></i>智能互动</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-pink-600 mr-3"></i>教育娱乐</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-pink-600 mr-3"></i>安全定位</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-pink-600 mr-3"></i>语音识别</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-pink-600 mr-3"></i>远程监护</li>
+                    </ul>
                 </div>
-            </div>
-            
-            <!-- Feature Comparison Table -->
-            <div class="mt-20 overflow-x-auto">
-                <h3 class="text-2xl font-bold mb-6 text-center">Model Feature Comparison</h3>
-                <table class="min-w-full bg-white rounded-lg overflow-hidden">
-                    <thead class="bg-gray-100">
-                        <tr>
-                            <th class="py-3 px-4 text-left">Feature</th>
-                            <th class="py-3 px-4 text-center">Aeris</th>
-                            <th class="py-3 px-4 text-center">Vanguard</th>
-                            <th class="py-3 px-4 text-center">Synapse</th>
-                            <th class="py-3 px-4 text-center">Nexus</th>
-                            <th class="py-3 px-4 text-center">Oasis</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-gray-200">
-                        <tr>
-                            <td class="py-3 px-4 font-medium">AR Dome Size</td>
-                            <td class="py-3 px-4 text-center"><i class="fas fa-check text-green-500"></i></td>
-                            <td class="py-3 px-4 text-center"><i class="fas fa-check text-green-500"></i></td>
-                            <td class="py-3 px-4 text-center"><i class="fas fa-check text-green-500"></i></td>
-                            <td class="py-3 px-4 text-center"><i class="fas fa-check text-green-500"></i></td>
-                            <td class="py-3 px-4 text-center"><i class="fas fa-check-double text-blue-500"></i></td>
-                        </tr>
-                        <tr>
-                            <td class="py-3 px-4 font-medium">Sensor Array</td>
-                            <td class="py-3 px-4 text-center"><i class="fas fa-check text-green-500"></i></td>
-                            <td class="py-3 px-4 text-center"><i class="fas fa-check-double text-blue-500"></i></td>
-                            <td class="py-3 px-4 text-center"><i class="fas fa-check text-green-500"></i></td>
-                            <td class="py-3 px-4 text-center"><i class="fas fa-check text-green-500"></i></td>
-                            <td class="py-3 px-4 text-center"><i class="fas fa-check text-green-500"></i></td>
-                        </tr>
-                        <tr>
-                            <td class="py-3 px-4 font-medium">Gesture Control</td>
-                            <td class="py-3 px-4 text-center"><i class="fas fa-check text-green-500"></i></td>
-                            <td class="py-3 px-4 text-center"><i class="fas fa-check text-green-500"></i></td>
-                            <td class="py-3 px-4 text-center"><i class="fas fa-check-double text-blue-500"></i></td>
-                            <td class="py-3 px-4 text-center"><i class="fas fa-check text-green-500"></i></td>
-                            <td class="py-3 px-4 text-center"><i class="fas fa-check text-green-500"></i></td>
-                        </tr>
-                        <tr>
-                            <td class="py-3 px-4 font-medium">Autonomous Level</td>
-                            <td class="py-3 px-4 text-center"><i class="fas fa-check-double text-blue-500"></i></td>
-                            <td class="py-3 px-4 text-center"><i class="fas fa-check text-green-500"></i></td>
-                            <td class="py-3 px-4 text-center"><i class="fas fa-check-double text-blue-500"></i></td>
-                            <td class="py-3 px-4 text-center"><i class="fas fa-check-double text-blue-500"></i></td>
-                            <td class="py-3 px-4 text-center"><i class="fas fa-check text-green-500"></i></td>
-                        </tr>
-                        <tr>
-                            <td class="py-3 px-4 font-medium">Modular Design</td>
-                            <td class="py-3 px-4 text-center"><i class="fas fa-times text-red-500"></i></td>
-                            <td class="py-3 px-4 text-center"><i class="fas fa-check-double text-blue-500"></i></td>
-                            <td class="py-3 px-4 text-center"><i class="fas fa-times text-red-500"></i></td>
-                            <td class="py-3 px-4 text-center"><i class="fas fa-check-double text-blue-500"></i></td>
-                            <td class="py-3 px-4 text-center"><i class="fas fa-check text-green-500"></i></td>
-                        </tr>
-                    </tbody>
-                </table>
             </div>
         </div>
     </section>
-    
-    <!-- Gallery Modal -->
-    <div id="gallery-modal" class="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center hidden">
-        <div class="w-full max-w-6xl mx-4">
-            <div class="flex justify-between items-center mb-6">
-                <h3 id="gallery-title" class="text-2xl font-bold text-white"></h3>
-                <button id="close-gallery-btn" class="text-white hover:text-gray-300 focus:outline-none">
-                    <i class="fas fa-times text-2xl"></i>
-                </button>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4" id="gallery-content">
-                <!-- Gallery images will be dynamically inserted here -->
-            </div>
-        </div>
-    </div>
-    
+
     <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-bold mb-4">Contact Us</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Have questions about our future mobility solutions? We'd love to hear from you.</p>
+    <section id="contact" class="py-24 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
+        <!-- 背景装饰 -->
+        <div class="absolute top-0 left-0 w-full h-full opacity-5">
+            <div class="absolute top-10 right-20 w-72 h-72 bg-primary rounded-full blur-3xl"></div>
+            <div class="absolute bottom-10 left-20 w-64 h-64 bg-secondary rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-6xl font-bold mb-6 section-title leading-tight">开启合作之旅</h2>
+                <p class="text-2xl text-gray-600 max-w-4xl mx-auto">欢迎与我们取得联系，共同探讨合作机会，开启智能化未来</p>
             </div>
-            
-            <div class="flex flex-col md:flex-row">
-                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-8">
-                    <form class="bg-white rounded-xl p-8 shadow-lg">
-                        <div class="mb-6">
-                            <label for="name" class="block text-gray-700 font-medium mb-2">Name</label>
-                            <input type="text" id="name" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary">
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-7xl mx-auto">
+                <!-- 联系表单 -->
+                <div class="order-2 lg:order-1">
+                    <div class="premium-card rounded-3xl p-10 h-full">
+                        <div class="mb-8">
+                            <h3 class="text-3xl font-bold text-gray-800 mb-4">发送消息</h3>
+                            <p class="text-gray-600 text-lg">填写下方表单，我们将尽快与您取得联系</p>
                         </div>
-                        <div class="mb-6">
-                            <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
-                            <input type="email" id="email" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary">
-                        </div>
-                        <div class="mb-6">
-                            <label for="subject" class="block text-gray-700 font-medium mb-2">Subject</label>
-                            <input type="text" id="subject" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary">
-                        </div>
-                        <div class="mb-6">
-                            <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
-                            <textarea id="message" rows="5" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"></textarea>
-                        </div>
-                        <button type="submit" class="bg-primary hover:bg-blue-600 text-white px-8 py-3 rounded-lg font-medium transition-all w-full">
-                            Send Message
-                        </button>
-                    </form>
+                        <form class="space-y-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="name" class="block text-gray-800 font-semibold mb-3 text-lg">姓名
+                                        *</label>
+                                    <input type="text" id="name" required
+                                        class="w-full border-2 border-gray-200 rounded-xl px-5 py-4 text-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-all">
+                                </div>
+                                <div>
+                                    <label for="phone" class="block text-gray-800 font-semibold mb-3 text-lg">电话
+                                        *</label>
+                                    <input type="tel" id="phone" required
+                                        class="w-full border-2 border-gray-200 rounded-xl px-5 py-4 text-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-all">
+                                </div>
+                            </div>
+                            <div>
+                                <label for="email" class="block text-gray-800 font-semibold mb-3 text-lg">邮箱 *</label>
+                                <input type="email" id="email" required
+                                    class="w-full border-2 border-gray-200 rounded-xl px-5 py-4 text-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-all">
+                            </div>
+                            <div>
+                                <label for="company" class="block text-gray-800 font-semibold mb-3 text-lg">公司名称</label>
+                                <input type="text" id="company"
+                                    class="w-full border-2 border-gray-200 rounded-xl px-5 py-4 text-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-all">
+                            </div>
+                            <div>
+                                <label for="message" class="block text-gray-800 font-semibold mb-3 text-lg">项目需求
+                                    *</label>
+                                <textarea id="message" rows="6" required placeholder="请详细描述您的项目需求和合作意向..."
+                                    class="w-full border-2 border-gray-200 rounded-xl px-5 py-4 text-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-all resize-none"></textarea>
+                            </div>
+                            <button type="submit"
+                                class="w-full bg-gradient-to-r from-primary to-secondary hover:from-blue-700 hover:to-teal-700 text-white px-8 py-5 rounded-xl font-bold text-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                                <i class="fas fa-paper-plane mr-3"></i>发送合作咨询
+                            </button>
+                        </form>
+                    </div>
                 </div>
-                <div class="md:w-1/2 md:pl-8">
-                    <div class="bg-white rounded-xl p-8 shadow-lg h-full">
-                        <h3 class="text-2xl font-bold mb-6">Get in Touch</h3>
+                <!-- 联系信息 -->
+                <div class="order-1 lg:order-2">
+                    <div class="premium-card rounded-3xl p-10 h-full">
+                        <div class="mb-8">
+                            <h3 class="text-3xl font-bold text-gray-800 mb-4">联系信息</h3>
+                            <p class="text-gray-600 text-lg">多种方式与我们取得联系，开启合作之旅</p>
+                        </div>
+
+                        <!-- 联系方式卡片 -->
                         <div class="space-y-6">
-                            <div class="flex items-start">
-                                <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
-                                    <i class="fas fa-map-marker-alt text-xl text-primary"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold mb-1">Location</h4>
-                                    <p class="text-gray-600">123 Innovation Drive, Future City, FC 10001</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start">
-                                <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
-                                    <i class="fas fa-envelope text-xl text-primary"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold mb-1">Email</h4>
-                                    <p class="text-gray-600">info@futuremobility.com</p>
+                            <div
+                                class="group p-6 bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl hover:from-blue-100 hover:to-blue-200 transition-all duration-300">
+                                <div class="flex items-start">
+                                    <div
+                                        class="w-16 h-16 bg-gradient-to-br from-primary to-blue-600 rounded-full flex items-center justify-center mr-5 group-hover:scale-110 transition-transform shadow-lg">
+                                        <i class="fas fa-building text-2xl text-white"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h4 class="text-xl font-bold text-gray-800 mb-2">公司名称</h4>
+                                        <p class="text-gray-700 text-lg">上海沃硕通讯科技有限公司</p>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="flex items-start">
-                                <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
-                                    <i class="fas fa-phone-alt text-xl text-primary"></i>
+
+                            <div
+                                class="group p-6 bg-gradient-to-br from-green-50 to-green-100 rounded-2xl hover:from-green-100 hover:to-green-200 transition-all duration-300">
+                                <div class="flex items-start">
+                                    <div
+                                        class="w-16 h-16 bg-gradient-to-br from-secondary to-green-600 rounded-full flex items-center justify-center mr-5 group-hover:scale-110 transition-transform shadow-lg">
+                                        <i class="fas fa-map-marker-alt text-2xl text-white"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h4 class="text-xl font-bold text-gray-800 mb-2">公司地址</h4>
+                                        <p class="text-gray-700 text-lg">上海市浦东新区张江高科技园区</p>
+                                    </div>
                                 </div>
-                                <div>
-                                    <h4 class="font-bold mb-1">Phone</h4>
-                                    <p class="text-gray-600">+1 (555) 123-4567</p>
+                            </div>
+
+                            <div
+                                class="group p-6 bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl hover:from-purple-100 hover:to-purple-200 transition-all duration-300">
+                                <div class="flex items-start">
+                                    <div
+                                        class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center mr-5 group-hover:scale-110 transition-transform shadow-lg">
+                                        <i class="fas fa-envelope text-2xl text-white"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h4 class="text-xl font-bold text-gray-800 mb-2">邮箱地址</h4>
+                                        <p class="text-gray-700 text-lg">info@woandnet.com</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="group p-6 bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-2xl hover:from-yellow-100 hover:to-yellow-200 transition-all duration-300">
+                                <div class="flex items-start">
+                                    <div
+                                        class="w-16 h-16 bg-gradient-to-br from-gold to-yellow-600 rounded-full flex items-center justify-center mr-5 group-hover:scale-110 transition-transform shadow-lg">
+                                        <i class="fas fa-phone-alt text-2xl text-white"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h4 class="text-xl font-bold text-gray-800 mb-2">联系电话</h4>
+                                        <p class="text-gray-700 text-lg">+86 21-5888-8888</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="mt-8">
-                            <h4 class="font-bold mb-4">Follow Us</h4>
-                            <div class="flex space-x-4">
-                                <a href="#" class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition-all">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a href="#" class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition-all">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                                <a href="#" class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition-all">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a href="#" class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition-all">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
+
+                        <!-- 工作时间 -->
+                        <div class="mt-8 p-6 bg-gradient-to-r from-primary to-secondary text-white rounded-2xl">
+                            <h4 class="text-xl font-bold mb-3">工作时间</h4>
+                            <div class="space-y-2 text-lg">
+                                <p><i class="fas fa-clock mr-3"></i>周一至周五：9:00 - 18:00</p>
+                                <p><i class="fas fa-calendar mr-3"></i>周六周日：预约服务</p>
                             </div>
                         </div>
                     </div>
@@ -781,262 +808,97 @@
             </div>
         </div>
     </section>
-    
+
+    <!-- Partners Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h3 class="text-2xl font-bold mb-4">合作伙伴</h3>
+                <p class="text-gray-600">与行业领先企业建立战略合作关系</p>
+            </div>
+            <div class="flex flex-wrap justify-center items-center gap-8 opacity-60">
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <div class="text-2xl font-bold text-gray-400">Partner 1</div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <div class="text-2xl font-bold text-gray-400">Partner 2</div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <div class="text-2xl font-bold text-gray-400">Partner 3</div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <div class="text-2xl font-bold text-gray-400">Partner 4</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="bg-dark text-white py-12">
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row justify-between">
                 <div class="mb-8 md:mb-0">
-                    <h3 class="text-2xl font-bold mb-4">Future<span class="text-primary">Mobility</span></h3>
-                    <p class="text-gray-400 max-w-md">Redefining the future of transportation with innovative windshield-free design and cutting-edge technology.</p>
+                    <h3 class="text-2xl font-bold mb-4">沃与通讯</h3>
+                    <p class="text-gray-400 max-w-md">专注于物联网整体解决方案，以移动通信和近距离通讯为核心，为客户提供专业服务。</p>
                 </div>
                 <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
                     <div>
-                        <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+                        <h4 class="text-lg font-bold mb-4">快速链接</h4>
                         <ul class="space-y-2">
-                            <li><a href="#home" class="text-gray-400 hover:text-white transition-all">Home</a></li>
-                            <li><a href="#technology" class="text-gray-400 hover:text-white transition-all">Technology</a></li>
-                            <li><a href="#models" class="text-gray-400 hover:text-white transition-all">Models</a></li>
-                            <li><a href="#features" class="text-gray-400 hover:text-white transition-all">Features</a></li>
-                            <li><a href="#contact" class="text-gray-400 hover:text-white transition-all">Contact</a></li>
+                            <li><a href="#home" class="text-gray-400 hover:text-white transition-all">首页</a></li>
+                            <li><a href="#about" class="text-gray-400 hover:text-white transition-all">公司介绍</a></li>
+                            <li><a href="#news" class="text-gray-400 hover:text-white transition-all">动态资讯</a></li>
+                            <li><a href="#solutions" class="text-gray-400 hover:text-white transition-all">设计与方案</a>
+                            </li>
                         </ul>
                     </div>
                     <div>
-                        <h4 class="text-lg font-bold mb-4">Models</h4>
+                        <h4 class="text-lg font-bold mb-4">服务支持</h4>
                         <ul class="space-y-2">
-                            <li><a href="#models" class="text-gray-400 hover:text-white transition-all">Aeris</a></li>
-                            <li><a href="#models" class="text-gray-400 hover:text-white transition-all">Vanguard</a></li>
-                            <li><a href="#models" class="text-gray-400 hover:text-white transition-all">Synapse</a></li>
-                            <li><a href="#models" class="text-gray-400 hover:text-white transition-all">Nexus</a></li>
-                            <li><a href="#models" class="text-gray-400 hover:text-white transition-all">Oasis</a></li>
+                            <li><a href="mailto:support@woandnet.com"
+                                    class="text-gray-400 hover:text-white transition-all">技术支持</a></li>
+                            <li><a href="#contact" class="text-gray-400 hover:text-white transition-all">联系我们</a></li>
                         </ul>
                     </div>
                     <div>
-                        <h4 class="text-lg font-bold mb-4">Legal</h4>
+                        <h4 class="text-lg font-bold mb-4">法律信息</h4>
                         <ul class="space-y-2">
-                            <li><a href="#" class="text-gray-400 hover:text-white transition-all">Privacy Policy</a></li>
-                            <li><a href="#" class="text-gray-400 hover:text-white transition-all">Terms of Service</a></li>
-                            <li><a href="#" class="text-gray-400 hover:text-white transition-all">Cookie Policy</a></li>
-                            <li><a href="#" class="text-gray-400 hover:text-white transition-all">Sitemap</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition-all">隐私政策</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition-all">服务条款</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition-all">网站地图</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
             <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400 mb-4 md:mb-0">&copy; 2023 Future Mobility. All rights reserved.</p>
-                <div class="flex space-x-4">
-                    <a href="#" class="text-gray-400 hover:text-white transition-all">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition-all">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition-all">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition-all">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                </div>
+                <p class="text-gray-400 mb-4 md:mb-0">&copy; 2023 上海沃硕通讯科技有限公司. 版权所有.</p>
+                <p class="text-gray-400">网站域名：www.woandnet.com</p>
             </div>
         </div>
     </footer>
-    
+
     <script>
         // Mobile Menu Toggle
-        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+        document.getElementById('mobile-menu-btn').addEventListener('click', function () {
             document.getElementById('mobile-menu').classList.toggle('active');
         });
-        
-        // AI Chat Modal
-        const aiChatModal = document.getElementById('ai-chat-modal');
-        const chatMessages = document.getElementById('chat-messages');
-        const chatInput = document.getElementById('chat-input');
-        const sendMessageBtn = document.getElementById('send-message-btn');
-        
-        document.getElementById('ai-assistant-btn').addEventListener('click', function() {
-            aiChatModal.classList.remove('hidden');
-        });
-        
-        document.getElementById('mobile-ai-btn').addEventListener('click', function() {
-            aiChatModal.classList.remove('hidden');
-            document.getElementById('mobile-menu').classList.remove('active');
-        });
-        
-        document.getElementById('close-chat-btn').addEventListener('click', function() {
-            aiChatModal.classList.add('hidden');
-        });
-        
-        // AI Chat Functionality
-        function sendMessage() {
-            const message = chatInput.value.trim();
-            if (message) {
-                // Add user message
-                chatMessages.innerHTML += `
-                    <div class="chat-message user-message">
-                        <p>${message}</p>
-                    </div>
-                `;
-                
-                // Clear input
-                chatInput.value = '';
-                
-                // Scroll to bottom
-                chatMessages.scrollTop = chatMessages.scrollHeight;
-                
-                // Simulate AI response
-                setTimeout(() => {
-                    let aiResponse = '';
-                    
-                    // Simple keyword-based responses
-                    if (message.toLowerCase().includes('aeris')) {
-                        aiResponse = "Aeris is our urban commuter capsule with a rounded, compact design. It offers极致 space utilization and provides a quiet resting cabin on the move.";
-                    } else if (message.toLowerCase().includes('vanguard')) {
-                        aiResponse = "Vanguard is our all-terrain explorer with an angular, rugged design. It can conquer any harsh environment with its advanced sensor array and reinforced structure.";
-                    } else if (message.toLowerCase().includes('synapse')) {
-                        aiResponse = "Synapse is our high-speed interconnected梭形车 designed for maglev roads. It features a streamlined design and can reach extreme speeds while maintaining connectivity.";
-                    } else if (message.toLowerCase().includes('nexus')) {
-                        aiResponse = "Nexus is our public service and sharing module with a square, transparent design. It can transform to serve various purposes like mobile retail, healthcare, or logistics.";
-                    } else if (message.toLowerCase().includes('oasis')) {
-                        aiResponse = "Oasis is our personal leisure rover with an organic design. It integrates with nature, featuring real plants and a fully transparent dome for an immersive experience.";
-                    } else if (message.toLowerCase().includes('technology') || message.toLowerCase().includes('how')) {
-                        aiResponse = "Our vehicles use three core technologies: Panoramic AR Dome, Sensor Fusion & AI, and By-wire Gesture Control. These eliminate the need for traditional windshields while enhancing safety and experience.";
-                    } else {
-                        aiResponse = "Thank you for your interest in Future Mobility. Our windshield-free vehicles use advanced AR and AI technologies to redefine the driving experience. Which model would you like to know more about?";
-                    }
-                    
-                    // Add AI response
-                    chatMessages.innerHTML += `
-                        <div class="chat-message ai-message">
-                            <p>${aiResponse}</p>
-                        </div>
-                    `;
-                    
-                    // Scroll to bottom
-                    chatMessages.scrollTop = chatMessages.scrollHeight;
-                }, 1000);
-            }
-        }
-        
-        sendMessageBtn.addEventListener('click', sendMessage);
-        
-        chatInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                sendMessage();
-            }
-        });
-        
-        // Gallery Modal
-        const galleryModal = document.getElementById('gallery-modal');
-        const galleryTitle = document.getElementById('gallery-title');
-        const galleryContent = document.getElementById('gallery-content');
-        
-        // Sample gallery images (in a real app, these would be actual images)
-        const galleries = {
-            aeris: {
-                title: "Aeris - Urban Commuter Capsule",
-                images: [
-                    "https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/60bf1ab2048947fa9c71a2c28caba342~tplv-a9rns2rl98-image.image?rcl=20251028160452F9649B55702E9DBD65E5&rk3s=8e244e95&rrcfp=f06b921b&x-expires=1764230706&x-signature=y79GVHAfXs2j16ZOD9KzB4aKTxs%3D",
-                    "https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/60bf1ab2048947fa9c71a2c28caba342~tplv-a9rns2rl98-image.image?rcl=20251028160452F9649B55702E9DBD65E5&rk3s=8e244e95&rrcfp=f06b921b&x-expires=1764230706&x-signature=y79GVHAfXs2j16ZOD9KzB4aKTxs%3D",
-                    "https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/60bf1ab2048947fa9c71a2c28caba342~tplv-a9rns2rl98-image.image?rcl=20251028160452F9649B55702E9DBD65E5&rk3s=8e244e95&rrcfp=f06b921b&x-expires=1764230706&x-signature=y79GVHAfXs2j16ZOD9KzB4aKTxs%3D",
-                    "https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/60bf1ab2048947fa9c71a2c28caba342~tplv-a9rns2rl98-image.image?rcl=20251028160452F9649B55702E9DBD65E5&rk3s=8e244e95&rrcfp=f06b921b&x-expires=1764230706&x-signature=y79GVHAfXs2j16ZOD9KzB4aKTxs%3D"
-                ]
-            },
-            vanguard: {
-                title: "Vanguard - All-Terrain Explorer",
-                images: [
-                    "https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/791eb6958e2947ed99467c49729fb319~tplv-a9rns2rl98-image.image?rcl=20251028160452F9649B55702E9DBD65E5&rk3s=8e244e95&rrcfp=f06b921b&x-expires=1764230714&x-signature=f60UOSUzN%2B4ke7v5uW51WQLVmeU%3D",
-                    "https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/791eb6958e2947ed99467c49729fb319~tplv-a9rns2rl98-image.image?rcl=20251028160452F9649B55702E9DBD65E5&rk3s=8e244e95&rrcfp=f06b921b&x-expires=1764230714&x-signature=f60UOSUzN%2B4ke7v5uW51WQLVmeU%3D",
-                    "https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/791eb6958e2947ed99467c49729fb319~tplv-a9rns2rl98-image.image?rcl=20251028160452F9649B55702E9DBD65E5&rk3s=8e244e95&rrcfp=f06b921b&x-expires=1764230714&x-signature=f60UOSUzN%2B4ke7v5uW51WQLVmeU%3D",
-                    "https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/791eb6958e2947ed99467c49729fb319~tplv-a9rns2rl98-image.image?rcl=20251028160452F9649B55702E9DBD65E5&rk3s=8e244e95&rrcfp=f06b921b&x-expires=1764230714&x-signature=f60UOSUzN%2B4ke7v5uW51WQLVmeU%3D"
-                ]
-            },
-            synapse: {
-                title: "Synapse - High-Speed Interconnected梭形车",
-                images: [
-                    "https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/232de06df7094fc99af1b9272c974506~tplv-a9rns2rl98-image.image?rcl=20251028160452F9649B55702E9DBD65E5&rk3s=8e244e95&rrcfp=f06b921b&x-expires=1764230724&x-signature=4rAafIQT5PXGa%2FBIVhQhNFllha8%3D",
-                    "https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/232de06df7094fc99af1b9272c974506~tplv-a9rns2rl98-image.image?rcl=20251028160452F9649B55702E9DBD65E5&rk3s=8e244e95&rrcfp=f06b921b&x-expires=1764230724&x-signature=4rAafIQT5PXGa%2FBIVhQhNFllha8%3D",
-                    "https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/232de06df7094fc99af1b9272c974506~tplv-a9rns2rl98-image.image?rcl=20251028160452F9649B55702E9DBD65E5&rk3s=8e244e95&rrcfp=f06b921b&x-expires=1764230724&x-signature=4rAafIQT5PXGa%2FBIVhQhNFllha8%3D",
-                    "https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/232de06df7094fc99af1b9272c974506~tplv-a9rns2rl98-image.image?rcl=20251028160452F9649B55702E9DBD65E5&rk3s=8e244e95&rrcfp=f06b921b&x-expires=1764230724&x-signature=4rAafIQT5PXGa%2FBIVhQhNFllha8%3D"
-                ]
-            },
-            nexus: {
-                title: "Nexus - Public Service & Sharing Module",
-                images: [
-                    "https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/8c58bef362de4e4487fae59b98670f9a~tplv-a9rns2rl98-image.image?rcl=20251028160452F9649B55702E9DBD65E5&rk3s=8e244e95&rrcfp=f06b921b&x-expires=1764230732&x-signature=nMdp3%2Fsd4nQAIhNvrI0PHr42%2BZA%3D",
-                    "https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/8c58bef362de4e4487fae59b98670f9a~tplv-a9rns2rl98-image.image?rcl=20251028160452F9649B55702E9DBD65E5&rk3s=8e244e95&rrcfp=f06b921b&x-expires=1764230732&x-signature=nMdp3%2Fsd4nQAIhNvrI0PHr42%2BZA%3D",
-                    "https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/8c58bef362de4e4487fae59b98670f9a~tplv-a9rns2rl98-image.image?rcl=20251028160452F9649B55702E9DBD65E5&rk3s=8e244e95&rrcfp=f06b921b&x-expires=1764230732&x-signature=nMdp3%2Fsd4nQAIhNvrI0PHr42%2BZA%3D",
-                    "https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/8c58bef362de4e4487fae59b98670f9a~tplv-a9rns2rl98-image.image?rcl=20251028160452F9649B55702E9DBD65E5&rk3s=8e244e95&rrcfp=f06b921b&x-expires=1764230732&x-signature=nMdp3%2Fsd4nQAIhNvrI0PHr42%2BZA%3D"
-                ]
-            },
-            oasis: {
-                title: "Oasis - Personal Leisure Rover",
-                images: [
-                    "https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/0b9ccfe6d334448da0f6e976e808fea6~tplv-a9rns2rl98-image.image?rcl=20251028160452F9649B55702E9DBD65E5&rk3s=8e244e95&rrcfp=f06b921b&x-expires=1764230747&x-signature=nQKH%2BIN2H1TJjKKrIVklt6N6cjU%3D",
-                    "https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/0b9ccfe6d334448da0f6e976e808fea6~tplv-a9rns2rl98-image.image?rcl=20251028160452F9649B55702E9DBD65E5&rk3s=8e244e95&rrcfp=f06b921b&x-expires=1764230747&x-signature=nQKH%2BIN2H1TJjKKrIVklt6N6cjU%3D",
-                    "https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/0b9ccfe6d334448da0f6e976e808fea6~tplv-a9rns2rl98-image.image?rcl=20251028160452F9649B55702E9DBD65E5&rk3s=8e244e95&rrcfp=f06b921b&x-expires=1764230747&x-signature=nQKH%2BIN2H1TJjKKrIVklt6N6cjU%3D",
-                    "https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/0b9ccfe6d334448da0f6e976e808fea6~tplv-a9rns2rl98-image.image?rcl=20251028160452F9649B55702E9DBD65E5&rk3s=8e244e95&rrcfp=f06b921b&x-expires=1764230747&x-signature=nQKH%2BIN2H1TJjKKrIVklt6N6cjU%3D"
-                ]
-            }
-        };
-        
-        // Open gallery
-        document.querySelectorAll('.view-gallery-btn').forEach(button => {
-            button.addEventListener('click', function() {
-                const model = this.getAttribute('data-model');
-                const gallery = galleries[model];
-                
-                galleryTitle.textContent = gallery.title;
-                
-                // Clear previous content
-                galleryContent.innerHTML = '';
-                
-                // Add images
-                gallery.images.forEach(image => {
-                    galleryContent.innerHTML += `
-                        <div class="rounded-lg overflow-hidden">
-                            <img src="${image}" alt="${gallery.title}" class="w-full h-auto">
-                        </div>
-                    `;
-                });
-                
-                // Show modal
-                galleryModal.classList.remove('hidden');
-            });
-        });
-        
-        // Close gallery
-        document.getElementById('close-gallery-btn').addEventListener('click', function() {
-            galleryModal.classList.add('hidden');
-        });
-        
-        // Close modals when clicking outside
-        window.addEventListener('click', function(e) {
-            if (e.target === aiChatModal) {
-                aiChatModal.classList.add('hidden');
-            }
-            
-            if (e.target === galleryModal) {
-                galleryModal.classList.add('hidden');
-            }
-        });
-        
+
         // Navigation active state
         const sections = document.querySelectorAll('section');
         const navLinks = document.querySelectorAll('.nav-link');
-        
-        window.addEventListener('scroll', function() {
+
+        window.addEventListener('scroll', function () {
             let current = '';
-            
+
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
                 const sectionHeight = section.clientHeight;
-                
+
                 if (pageYOffset >= (sectionTop - 200)) {
                     current = section.getAttribute('id');
                 }
             });
-            
+
             navLinks.forEach(link => {
                 link.classList.remove('active-nav');
                 if (link.getAttribute('href').substring(1) === current) {
@@ -1044,133 +906,23 @@
                 }
             });
         });
-        
-        // Three.js Technology Demo
-        function initTechDemo() {
-            const container = document.getElementById('tech-demo-viewer');
-            
-            // Create scene
-            const scene = new THREE.Scene();
-            scene.background = new THREE.Color(0xf3f4f6);
-            
-            // Create camera
-            const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
-            camera.position.z = 5;
-            
-            // Create renderer
-            const renderer = new THREE.WebGLRenderer({ antialias: true });
-            renderer.setSize(container.clientWidth, container.clientHeight);
-            container.appendChild(renderer.domElement);
-            
-            // Add lights
-            const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-            scene.add(ambientLight);
-            
-            const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
-            directionalLight.position.set(1, 1, 1);
-            scene.add(directionalLight);
-            
-            // Create a simple car model
-            const carGeometry = new THREE.BoxGeometry(2, 0.8, 1.2);
-            const carMaterial = new THREE.MeshPhongMaterial({ color: 0x3B82F6 });
-            const car = new THREE.Mesh(carGeometry, carMaterial);
-            scene.add(car);
-            
-            // Create AR dome
-            const domeGeometry = new THREE.SphereGeometry(1.5, 32, 16, 0, Math.PI * 2, 0, Math.PI / 2);
-            const domeMaterial = new THREE.MeshPhongMaterial({ 
-                color: 0x818CF8, 
-                transparent: true, 
-                opacity: 0.7,
-                side: THREE.DoubleSide
-            });
-            const dome = new THREE.Mesh(domeGeometry, domeMaterial);
-            dome.position.y = 0.8;
-            dome.rotation.x = Math.PI;
-            car.add(dome);
-            
-            // Create sensors
-            const sensorGeometry = new THREE.SphereGeometry(0.1, 16, 16);
-            const sensorMaterial = new THREE.MeshPhongMaterial({ color: 0xFF6B6B });
-            
-            const sensors = [];
-            const sensorPositions = [
-                [-1, 1, 0.6],  // Front left
-                [1, 1, 0.6],   // Front right
-                [-1, 1, -0.6], // Rear left
-                [1, 1, -0.6],  // Rear right
-                [0, 1, 0.8]    // Top center
-            ];
-            
-            sensorPositions.forEach(pos => {
-                const sensor = new THREE.Mesh(sensorGeometry, sensorMaterial);
-                sensor.position.set(pos[0], pos[1], pos[2]);
-                car.add(sensor);
-                sensors.push(sensor);
-            });
-            
-            // Create gesture control visualization
-            const gestureGeometry = new THREE.RingGeometry(0.3, 0.5, 32);
-            const gestureMaterial = new THREE.MeshPhongMaterial({ 
-                color: 0x10B981, 
-                transparent: true, 
-                opacity: 0.5,
-                side: THREE.DoubleSide
-            });
-            const gesture = new THREE.Mesh(gestureGeometry, gestureMaterial);
-            gesture.position.set(0, 0.5, 1.3);
-            gesture.rotation.x = Math.PI / 2;
-            car.add(gesture);
-            
-            // Animation
-            function animate() {
-                requestAnimationFrame(animate);
-                
-                // Rotate car
-                car.rotation.y += 0.01;
-                
-                // Pulse sensors
-                sensors.forEach((sensor, index) => {
-                    const scale = 1 + 0.1 * Math.sin(Date.now() * 0.001 + index);
-                    sensor.scale.set(scale, scale, scale);
-                });
-                
-                // Pulse gesture control
-                const gestureScale = 1 + 0.1 * Math.sin(Date.now() * 0.003);
-                gesture.scale.set(gestureScale, gestureScale, gestureScale);
-                
-                renderer.render(scene, camera);
-            }
-            
-            // Handle window resize
-            window.addEventListener('resize', function() {
-                camera.aspect = container.clientWidth / container.clientHeight;
-                camera.updateProjectionMatrix();
-                renderer.setSize(container.clientWidth, container.clientHeight);
-            });
-            
-            animate();
-        }
-        
-        // Initialize Three.js demo when page loads
-        window.addEventListener('load', initTechDemo);
-        
+
         // Form submission
-        document.querySelector('form').addEventListener('submit', function(e) {
+        document.querySelector('form').addEventListener('submit', function (e) {
             e.preventDefault();
-            
+
             // Show loading state
             const submitBtn = this.querySelector('button[type="submit"]');
             const originalText = submitBtn.innerHTML;
-            submitBtn.innerHTML = '<div class="loader mx-auto"></div>';
+            submitBtn.innerHTML = '发送中...';
             submitBtn.disabled = true;
-            
+
             // Simulate form submission
             setTimeout(() => {
-                submitBtn.innerHTML = '<i class="fas fa-check mr-2"></i> Message Sent';
+                submitBtn.innerHTML = '发送成功';
                 submitBtn.classList.remove('bg-primary', 'hover:bg-blue-600');
                 submitBtn.classList.add('bg-green-500', 'hover:bg-green-600');
-                
+
                 // Reset form
                 setTimeout(() => {
                     this.reset();
@@ -1181,70 +933,50 @@
                 }, 3000);
             }, 1500);
         });
-        
+
         // GSAP Animations
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Hero section animations
-            gsap.from('.hero-gradient h1', { 
-                opacity: 0, 
-                y: 50, 
-                duration: 1, 
-                delay: 0.2 
+            gsap.from('.hero-gradient h1', {
+                opacity: 0,
+                y: 50,
+                duration: 1,
+                delay: 0.2
             });
-            
-            gsap.from('.hero-gradient p', { 
-                opacity: 0, 
-                y: 30, 
-                duration: 1, 
-                delay: 0.5 
+
+            gsap.from('.hero-gradient p', {
+                opacity: 0,
+                y: 30,
+                duration: 1,
+                delay: 0.5
             });
-            
-            gsap.from('.hero-gradient .flex.flex-wrap', { 
-                opacity: 0, 
-                y: 20, 
-                duration: 1, 
-                delay: 0.8 
+
+            gsap.from('.hero-gradient .flex.flex-wrap', {
+                opacity: 0,
+                y: 20,
+                duration: 1,
+                delay: 0.8
             });
-            
-            gsap.from('.hero-gradient img', { 
-                opacity: 0, 
-                scale: 0.9, 
-                duration: 1, 
-                delay: 0.3 
-            });
-            
+
             // Scroll animations
             gsap.registerPlugin(ScrollTrigger);
-            
-            // Technology section
-            gsap.utils.toArray('.tech-card').forEach((card, i) => {
+
+            // Cards animation
+            gsap.utils.toArray('.card-hover').forEach((card, i) => {
                 gsap.from(card, {
                     scrollTrigger: {
                         trigger: card,
                         start: 'top 80%'
                     },
                     opacity: 0,
-                    y: 50,
-                    duration: 0.8,
-                    delay: i * 0.2
+                    y: 30,
+                    duration: 0.6,
+                    delay: i * 0.1
                 });
             });
-            
-            // Models section
-            gsap.utils.toArray('#models > div').forEach((model, i) => {
-                gsap.from(model, {
-                    scrollTrigger: {
-                        trigger: model,
-                        start: 'top 80%'
-                    },
-                    opacity: 0,
-                    y: 50,
-                    duration: 0.8
-                });
-            });
-            
-            // Features section
-            gsap.utils.toArray('.feature-card').forEach((card, i) => {
+
+            // Solution cards animation
+            gsap.utils.toArray('.solution-card').forEach((card, i) => {
                 gsap.from(card, {
                     scrollTrigger: {
                         trigger: card,
@@ -1259,4 +991,5 @@
         });
     </script>
 </body>
+
 </html>
