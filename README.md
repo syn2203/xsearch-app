@@ -1,47 +1,79 @@
-# Astro Starter Kit: Basics
+# XSearch App
 
-```sh
-npm create astro@latest -- --template basics
+基于 Astro + Tailwind CSS 的现代化 Web 应用。
+
+## 🚀 快速开始
+
+### 本地开发
+
+```bash
+# 安装依赖
+npm install
+
+# 启动开发服务器
+npm run dev
+
+# 构建生产版本
+npm run build
+
+# 预览构建结果
+npm run preview
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 📦 部署到 Cloudflare Pages
 
-## 🚀 Project Structure
+### 构建设置
 
-Inside of your Astro project, you'll see the following folders and files:
+在 Cloudflare Pages 中使用以下配置：
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+```
+构建命令: npm run build
+构建输出目录: dist
+Root 目录: /
+环境变量: NODE_VERSION = 18
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+### 重要文件
 
-## 🧞 Commands
+- `public/_redirects`: 处理 SPA 路由重定向
+- `tailwind.config.mjs`: Tailwind CSS 配置
+- `postcss.config.mjs`: PostCSS 配置
 
-All commands are run from the root of the project, from a terminal:
+## 🛠 技术栈
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+- **框架**: Astro 5.x
+- **样式**: Tailwind CSS 3.x
+- **构建工具**: Vite
+- **部署**: Cloudflare Pages
 
-## 👀 Want to learn more?
+## 📁 项目结构
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-# xsearch-app
+```
+├── src/
+│   ├── components/     # Astro 组件
+│   ├── layouts/        # 布局组件
+│   ├── pages/          # 页面文件
+│   └── assets/         # 静态资源
+├── public/             # 公共文件
+├── dist/               # 构建输出
+└── package.json        # 项目配置
+```
+
+## 🔧 故障排除
+
+### 构建失败
+
+如果遇到依赖问题：
+
+```bash
+# 清理并重新安装
+rm -rf node_modules package-lock.json
+npm install
+```
+
+### 部署 404 错误
+
+确保：
+1. 构建输出目录设置为 `dist`
+2. `_redirects` 文件存在于 `public/` 目录
+3. DNS 配置正确指向 Cloudflare Pages
