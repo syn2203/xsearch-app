@@ -219,6 +219,38 @@
                 display: flex;
             }
         }
+
+        /* 芯片合作伙伴无限滚动动画 */
+        @keyframes scroll-left-infinite {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-33.333%);
+            }
+        }
+
+        .animate-scroll-left {
+            animation: scroll-left-infinite 20s linear infinite;
+        }
+
+        .chip-partners-scroll:hover {
+            animation-play-state: paused;
+        }
+
+        /* 滚动容器样式 */
+        .chip-partners-scroll {
+            display: flex;
+            width: max-content;
+        }
+
+        /* 确保滚动区域隐藏溢出内容 */
+        .scroll-container {
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+        }
     </style>
 </head>
 
@@ -283,8 +315,10 @@
                         <span class="block text-white">智联未来</span>
                         <span class="block text-4xl md:text-6xl text-gray-200 font-semibold">物联网整体解决方案专家</span>
                     </h1>
-                    <p class="text-xl md:text-2xl text-gray-200 mb-12 leading-relaxed max-w-3xl">
-                        上海沃硕通讯科技有限公司是物联网领域的创新引领者，专注于物联网、智能家居、穿戴设备、儿童玩具等前沿领域。我们以移动通信和近距离通讯为核心技术，为消费电子、快递物流、零售业、工业控制、室内定位等多个行业提供2G/3G/4G通信模块、传感器模块、Bluetooth模块、GPS模块、WiFi模块等专业产品，同时提供从设计到实施的完整解决方案和技术服务。
+                    <p class="text-lg md:text-xl text-gray-200 mb-12 leading-relaxed max-w-3xl">
+                        上海沃硕通讯科技有限公司是一家提供智能手持终端、POS机、广告机、机器人、智能家居、工业控制、轨道交通、车载导航、安防监控、移动医疗、环境监测、培训教育及物联网等相关领域解决方案的研发公司。以移动通信和近距离通讯为核心，以"诚信
+                        专注 求实
+                        拓新"为理念，以客户需求为中心，追求卓越，不断进步，互利共赢。公司拥有年轻、高效、优秀且经验丰富的研发团队，为客户提供2G/3G/4G通信模块、传感器模块、Bluetooth模块、GPS模块、WiFi模块、LORA模块、RFID模块、NB-IOT模块等，同时提供ARM核心板和FPGA核心板，以及ARM/FPGA整体解决方案和服务。
                     </p>
                     <div class="flex flex-wrap gap-6">
                         <a href="#solutions"
@@ -399,9 +433,10 @@
                                 </div>
                                 <h3 class="text-3xl font-bold text-gray-800 mb-4">企业使命</h3>
                             </div>
-                            <p class="text-lg leading-relaxed text-gray-700 mb-6">
-                                上海沃硕通讯科技有限公司是一家专业的<span
-                                    class="text-primary font-bold">物联网整体解决方案</span>提供商，致力于成为物联网领域整体解决方案与服务的优秀企业。
+                            <p class="text-base leading-relaxed text-gray-700 mb-6">
+                                上海沃硕通讯科技有限公司是一家提供<span
+                                    class="text-primary font-bold">智能手持终端、POS机、广告机、机器人、智能家居、工业控制、轨道交通、车载导航、安防监控、移动医疗、环境监测、培训教育及物联网</span>等相关领域解决方案的研发公司。以移动通信和近距离通讯为核心，以"诚信
+                                专注 求实 拓新"为理念，以客户需求为中心，追求卓越，不断进步，互利共赢。
                             </p>
                             <div class="bg-gradient-to-r from-blue-50 to-blue-100 rounded-xl p-6">
                                 <h4 class="text-xl font-bold text-primary mb-4">核心领域</h4>
@@ -435,8 +470,9 @@
                                 </div>
                                 <h3 class="text-2xl font-bold text-gray-800 mb-4">企业愿景</h3>
                             </div>
-                            <p class="text-lg leading-relaxed text-gray-700 mb-6 text-center">
-                                致力于成为<span class="text-primary font-bold">全球无线通讯及物联网领域</span>整体解决方案与服务的优秀企业，引领智能化未来发展
+                            <p class="text-base leading-relaxed text-gray-700 mb-6 text-center">
+                                致力于成为<span
+                                    class="text-primary font-bold">全球无线通讯、ARM平台解决方案及物联网领域</span>整体解决方案与服务的优秀企业，引领智能化未来发展
                             </p>
 
                             <div class="grid grid-cols-2 gap-4 mt-6">
@@ -476,8 +512,9 @@
                                 </div>
                                 <h3 class="text-3xl font-bold text-gray-800 mb-4">技术实力</h3>
                             </div>
-                            <p class="text-lg leading-relaxed text-gray-700 mb-6">
-                                公司拥有一支<span class="text-secondary font-bold">年轻、高效、优秀且经验丰富</span>的专业研发团队，不断开拓物联网行业应用市场。
+                            <p class="text-base leading-relaxed text-gray-700 mb-6">
+                                公司拥有一支<span
+                                    class="text-secondary font-bold">年轻、高效、优秀且经验丰富</span>的专业研发团队，不断开拓物联网、行业应用市场，包括面向消费电子、快递物流、零售业、工业控制、室内定位等领域。
                             </p>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-4">
@@ -493,7 +530,11 @@
                                         </div>
                                         <div class="flex items-center">
                                             <i class="fas fa-check-circle text-primary mr-2"></i>
-                                            <span>WiFi模块、LORA模块</span>
+                                            <span>WiFi、LORA、RFID模块</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <i class="fas fa-check-circle text-primary mr-2"></i>
+                                            <span>NB-IOT模块</span>
                                         </div>
                                     </div>
                                 </div>
@@ -510,7 +551,33 @@
                                         </div>
                                         <div class="flex items-center">
                                             <i class="fas fa-check-circle text-secondary mr-2"></i>
-                                            <span>NB-IOT模块等</span>
+                                            <span>环境监测传感器</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ARM/FPGA平台技术 -->
+                            <div class="mt-6 bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-6">
+                                <h5 class="font-bold text-purple-600 mb-4 flex items-center">
+                                    <i class="fas fa-microchip mr-2"></i>
+                                    ARM/FPGA平台解决方案
+                                </h5>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div>
+                                        <h6 class="font-semibold text-gray-800 mb-2">ARM核心板平台</h6>
+                                        <div class="space-y-1 text-sm text-gray-700">
+                                            <div>• 瑞芯微、NXP、MTK平台</div>
+                                            <div>• 全志、ST、TI平台</div>
+                                            <div>• 海思、地平线平台</div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h6 class="font-semibold text-gray-800 mb-2">FPGA核心板</h6>
+                                        <div class="space-y-1 text-sm text-gray-700">
+                                            <div>• 高性能FPGA解决方案</div>
+                                            <div>• ARM/FPGA整体方案</div>
+                                            <div>• 定制化开发服务</div>
                                         </div>
                                     </div>
                                 </div>
@@ -621,52 +688,170 @@
                 <!-- 产品展示画廊 -->
                 <div class="mt-16">
                     <div class="text-center mb-12">
-                        <h3 class="text-3xl font-bold text-gray-800 mb-4">核心产品展示</h3>
+                        <h3 class="text-4xl md:text-6xl font-bold mb-6 section-title leading-tight">核心产品展示</h3>
                         <p class="text-xl text-gray-600">专业的物联网产品，引领智能化未来</p>
                     </div>
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                        <div
-                            class="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300">
-                            <img src="images/iot.jpg" alt="物联网设备" class="w-full h-48 object-cover">
+
+                    <!-- 第一行：原有产品 -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+                        <div class="group">
                             <div
-                                class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                <div class="absolute bottom-4 left-4 text-white">
-                                    <h4 class="font-bold text-lg">物联网设备</h4>
-                                    <p class="text-sm opacity-90">IoT Solutions</p>
+                                class="relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300">
+                                <img src="images/iot.jpg" alt="物联网设备" class="w-full h-48 object-cover">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    <div class="absolute bottom-4 left-4 text-white">
+                                        <h4 class="font-bold text-lg">物联网设备</h4>
+                                        <p class="text-sm opacity-90">IoT Solutions</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div
-                            class="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300">
-                            <img src="images/watch.jpg" alt="智能手表" class="w-full h-48 object-cover">
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                <div class="absolute bottom-4 left-4 text-white">
-                                    <h4 class="font-bold text-lg">智能手表</h4>
-                                    <p class="text-sm opacity-90">Smart Watch</p>
-                                </div>
+                            <div class="mt-3 text-center">
+                                <h4 class="font-bold text-lg text-gray-800">物联网设备</h4>
+                                <p class="text-sm text-gray-600">IoT Solutions</p>
                             </div>
                         </div>
-                        <div
-                            class="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300">
-                            <img src="images/shouhuan.jpg" alt="智能手环" class="w-full h-48 object-cover">
+
+                        <div class="group">
                             <div
-                                class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                <div class="absolute bottom-4 left-4 text-white">
-                                    <h4 class="font-bold text-lg">智能手环</h4>
-                                    <p class="text-sm opacity-90">Smart Band</p>
+                                class="relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300">
+                                <img src="images/watch.jpg" alt="智能手表" class="w-full h-48 object-cover">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    <div class="absolute bottom-4 left-4 text-white">
+                                        <h4 class="font-bold text-lg">智能手表</h4>
+                                        <p class="text-sm opacity-90">Smart Watch</p>
+                                    </div>
                                 </div>
                             </div>
+                            <div class="mt-3 text-center">
+                                <h4 class="font-bold text-lg text-gray-800">智能手表</h4>
+                                <p class="text-sm text-gray-600">Smart Watch</p>
+                            </div>
                         </div>
-                        <div
-                            class="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300">
-                            <img src="images/toys.jpg" alt="智能玩具" class="w-full h-48 object-cover">
+
+                        <div class="group">
                             <div
-                                class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                <div class="absolute bottom-4 left-4 text-white">
-                                    <h4 class="font-bold text-lg">智能玩具</h4>
-                                    <p class="text-sm opacity-90">Smart Toys</p>
+                                class="relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300">
+                                <img src="images/shouhuan.jpg" alt="智能手环" class="w-full h-48 object-cover">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    <div class="absolute bottom-4 left-4 text-white">
+                                        <h4 class="font-bold text-lg">智能手环</h4>
+                                        <p class="text-sm opacity-90">Smart Band</p>
+                                    </div>
                                 </div>
+                            </div>
+                            <div class="mt-3 text-center">
+                                <h4 class="font-bold text-lg text-gray-800">智能手环</h4>
+                                <p class="text-sm text-gray-600">Smart Band</p>
+                            </div>
+                        </div>
+                        <div class="group">
+                            <div
+                                class="relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300">
+                                <img src="images/toys.jpg" alt="智能玩具" class="w-full h-48 object-cover">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    <div class="absolute bottom-4 left-4 text-white">
+                                        <h4 class="font-bold text-lg">智能玩具</h4>
+                                        <p class="text-sm opacity-90">Smart Toys</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-3 text-center">
+                                <h4 class="font-bold text-lg text-gray-800">智能玩具</h4>
+                                <p class="text-sm text-gray-600">Smart Toys</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 第二行：新增硬件产品 -->
+                    <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
+                        <div class="group">
+                            <div
+                                class="relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300">
+                                <img src="images/hardware01.jpg" alt="硬件产品01" class="w-full h-48 object-cover">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    <div class="absolute bottom-4 left-4 text-white">
+                                        <h4 class="font-bold text-lg">通信模块</h4>
+                                        <p class="text-sm opacity-90">Communication Module</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-3 text-center">
+                                <h4 class="font-bold text-lg text-gray-800">通信模块</h4>
+                                <p class="text-sm text-gray-600">Communication Module</p>
+                            </div>
+                        </div>
+
+                        <div class="group">
+                            <div
+                                class="relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300">
+                                <img src="images/hardware02.jpg" alt="硬件产品02" class="w-full h-48 object-cover">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    <div class="absolute bottom-4 left-4 text-white">
+                                        <h4 class="font-bold text-lg">传感器模块</h4>
+                                        <p class="text-sm opacity-90">Sensor Module</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-3 text-center">
+                                <h4 class="font-bold text-lg text-gray-800">传感器模块</h4>
+                                <p class="text-sm text-gray-600">Sensor Module</p>
+                            </div>
+                        </div>
+                        <div class="group">
+                            <div
+                                class="relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300">
+                                <img src="images/hardware03.jpg" alt="硬件产品03" class="w-full h-48 object-cover">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    <div class="absolute bottom-4 left-4 text-white">
+                                        <h4 class="font-bold text-lg">ARM核心板</h4>
+                                        <p class="text-sm opacity-90">ARM Core Board</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-3 text-center">
+                                <h4 class="font-bold text-lg text-gray-800">ARM核心板</h4>
+                                <p class="text-sm text-gray-600">ARM Core Board</p>
+                            </div>
+                        </div>
+                        <div class="group">
+                            <div
+                                class="relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300">
+                                <img src="images/hardware04.jpg" alt="硬件产品04" class="w-full h-48 object-cover">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    <div class="absolute bottom-4 left-4 text-white">
+                                        <h4 class="font-bold text-lg">FPGA核心板</h4>
+                                        <p class="text-sm opacity-90">FPGA Core Board</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-3 text-center">
+                                <h4 class="font-bold text-lg text-gray-800">FPGA核心板</h4>
+                                <p class="text-sm text-gray-600">FPGA Core Board</p>
+                            </div>
+                        </div>
+                        <div class="group">
+                            <div
+                                class="relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300">
+                                <img src="images/hardware05.jpg" alt="硬件产品05" class="w-full h-48 object-cover">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    <div class="absolute bottom-4 left-4 text-white">
+                                        <h4 class="font-bold text-lg">定制化方案</h4>
+                                        <p class="text-sm opacity-90">Custom Solutions</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-3 text-center">
+                                <h4 class="font-bold text-lg text-gray-800">定制化方案</h4>
+                                <p class="text-sm text-gray-600">Custom Solutions</p>
                             </div>
                         </div>
                     </div>
@@ -857,71 +1042,215 @@
                 <h3 class="text-2xl font-bold text-center mb-8 text-primary">
                     <i class="fas fa-microchip mr-3"></i>芯片与半导体合作伙伴
                 </h3>
-                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
-                    <div
-                        class="group bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100">
-                        <div class="text-center">
+                <!-- 滚动容器 -->
+                <div class="scroll-container">
+                    <div class="chip-partners-scroll gap-6 animate-scroll-left">
+                        <!-- 第一组 -->
+                        <div class="flex gap-6 flex-shrink-0">
                             <div
-                                class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform">
-                                <i class="fas fa-microchip text-2xl text-white"></i>
+                                class="group bg-white p-0 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 w-48 flex-shrink-0">
+                                <div class="text-center">
+                                    <div
+                                        class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform">
+                                        <i class="fas fa-microchip text-2xl text-white"></i>
+                                    </div>
+                                    <h4 class="font-bold text-gray-800 text-lg mb-1">高通</h4>
+                                    <p class="text-sm text-gray-600">Qualcomm</p>
+                                </div>
                             </div>
-                            <h4 class="font-bold text-gray-800 text-lg mb-1">高通</h4>
-                            <p class="text-sm text-gray-600">Qualcomm</p>
+                            <div
+                                class="group bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 w-48 flex-shrink-0">
+                                <div class="text-center">
+                                    <div
+                                        class="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform">
+                                        <i class="fas fa-microchip text-2xl text-white"></i>
+                                    </div>
+                                    <h4 class="font-bold text-gray-800 text-lg mb-1">联发科</h4>
+                                    <p class="text-sm text-gray-600">MediaTek</p>
+                                </div>
+                            </div>
+                            <div
+                                class="group bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 w-48 flex-shrink-0">
+                                <div class="text-center">
+                                    <div
+                                        class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform">
+                                        <i class="fas fa-microchip text-2xl text-white"></i>
+                                    </div>
+                                    <h4 class="font-bold text-gray-800 text-lg mb-1">紫光展锐</h4>
+                                    <p class="text-sm text-gray-600">UNISOC</p>
+                                </div>
+                            </div>
+                            <div
+                                class="group bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 w-48 flex-shrink-0">
+                                <div class="text-center">
+                                    <div
+                                        class="w-16 h-16 bg-gradient-to-br from-red-500 to-red-600 rounded-full flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform">
+                                        <i class="fas fa-microchip text-2xl text-white"></i>
+                                    </div>
+                                    <h4 class="font-bold text-gray-800 text-lg mb-1">海思</h4>
+                                    <p class="text-sm text-gray-600">HiSilicon</p>
+                                </div>
+                            </div>
+                            <div
+                                class="group bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 w-48 flex-shrink-0">
+                                <div class="text-center">
+                                    <div
+                                        class="w-16 h-16 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-full flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform">
+                                        <i class="fas fa-microchip text-2xl text-white"></i>
+                                    </div>
+                                    <h4 class="font-bold text-gray-800 text-lg mb-1">瑞昱</h4>
+                                    <p class="text-sm text-gray-600">Realtek</p>
+                                </div>
+                            </div>
+                            <div
+                                class="group bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 w-48 flex-shrink-0">
+                                <div class="text-center">
+                                    <div
+                                        class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-full flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform">
+                                        <i class="fas fa-microchip text-2xl text-white"></i>
+                                    </div>
+                                    <h4 class="font-bold text-gray-800 text-lg mb-1">乐鑫</h4>
+                                    <p class="text-sm text-gray-600">Espressif</p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div
-                        class="group bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100">
-                        <div class="text-center">
+                        <!-- 第二组（重复内容，实现无缝循环） -->
+                        <div class="flex gap-6 flex-shrink-0">
                             <div
-                                class="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform">
-                                <i class="fas fa-microchip text-2xl text-white"></i>
+                                class="group bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 w-48 flex-shrink-0">
+                                <div class="text-center">
+                                    <div
+                                        class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform">
+                                        <i class="fas fa-microchip text-2xl text-white"></i>
+                                    </div>
+                                    <h4 class="font-bold text-gray-800 text-lg mb-1">高通</h4>
+                                    <p class="text-sm text-gray-600">Qualcomm</p>
+                                </div>
                             </div>
-                            <h4 class="font-bold text-gray-800 text-lg mb-1">联发科</h4>
-                            <p class="text-sm text-gray-600">MediaTek</p>
+                            <div
+                                class="group bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 w-48 flex-shrink-0">
+                                <div class="text-center">
+                                    <div
+                                        class="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform">
+                                        <i class="fas fa-microchip text-2xl text-white"></i>
+                                    </div>
+                                    <h4 class="font-bold text-gray-800 text-lg mb-1">联发科</h4>
+                                    <p class="text-sm text-gray-600">MediaTek</p>
+                                </div>
+                            </div>
+                            <div
+                                class="group bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 w-48 flex-shrink-0">
+                                <div class="text-center">
+                                    <div
+                                        class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform">
+                                        <i class="fas fa-microchip text-2xl text-white"></i>
+                                    </div>
+                                    <h4 class="font-bold text-gray-800 text-lg mb-1">紫光展锐</h4>
+                                    <p class="text-sm text-gray-600">UNISOC</p>
+                                </div>
+                            </div>
+                            <div
+                                class="group bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 w-48 flex-shrink-0">
+                                <div class="text-center">
+                                    <div
+                                        class="w-16 h-16 bg-gradient-to-br from-red-500 to-red-600 rounded-full flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform">
+                                        <i class="fas fa-microchip text-2xl text-white"></i>
+                                    </div>
+                                    <h4 class="font-bold text-gray-800 text-lg mb-1">海思</h4>
+                                    <p class="text-sm text-gray-600">HiSilicon</p>
+                                </div>
+                            </div>
+                            <div
+                                class="group bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 w-48 flex-shrink-0">
+                                <div class="text-center">
+                                    <div
+                                        class="w-16 h-16 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-full flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform">
+                                        <i class="fas fa-microchip text-2xl text-white"></i>
+                                    </div>
+                                    <h4 class="font-bold text-gray-800 text-lg mb-1">瑞昱</h4>
+                                    <p class="text-sm text-gray-600">Realtek</p>
+                                </div>
+                            </div>
+                            <div
+                                class="group bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 w-48 flex-shrink-0">
+                                <div class="text-center">
+                                    <div
+                                        class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-full flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform">
+                                        <i class="fas fa-microchip text-2xl text-white"></i>
+                                    </div>
+                                    <h4 class="font-bold text-gray-800 text-lg mb-1">乐鑫</h4>
+                                    <p class="text-sm text-gray-600">Espressif</p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div
-                        class="group bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100">
-                        <div class="text-center">
+                        <!-- 第三组（再次重复，确保无限滚动流畅） -->
+                        <div class="flex gap-6 flex-shrink-0">
                             <div
-                                class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform">
-                                <i class="fas fa-microchip text-2xl text-white"></i>
+                                class="group bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 w-48 flex-shrink-0">
+                                <div class="text-center">
+                                    <div
+                                        class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform">
+                                        <i class="fas fa-microchip text-2xl text-white"></i>
+                                    </div>
+                                    <h4 class="font-bold text-gray-800 text-lg mb-1">高通</h4>
+                                    <p class="text-sm text-gray-600">Qualcomm</p>
+                                </div>
                             </div>
-                            <h4 class="font-bold text-gray-800 text-lg mb-1">紫光展锐</h4>
-                            <p class="text-sm text-gray-600">UNISOC</p>
-                        </div>
-                    </div>
-                    <div
-                        class="group bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100">
-                        <div class="text-center">
                             <div
-                                class="w-16 h-16 bg-gradient-to-br from-red-500 to-red-600 rounded-full flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform">
-                                <i class="fas fa-microchip text-2xl text-white"></i>
+                                class="group bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 w-48 flex-shrink-0">
+                                <div class="text-center">
+                                    <div
+                                        class="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform">
+                                        <i class="fas fa-microchip text-2xl text-white"></i>
+                                    </div>
+                                    <h4 class="font-bold text-gray-800 text-lg mb-1">联发科</h4>
+                                    <p class="text-sm text-gray-600">MediaTek</p>
+                                </div>
                             </div>
-                            <h4 class="font-bold text-gray-800 text-lg mb-1">海思</h4>
-                            <p class="text-sm text-gray-600">HiSilicon</p>
-                        </div>
-                    </div>
-                    <div
-                        class="group bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100">
-                        <div class="text-center">
                             <div
-                                class="w-16 h-16 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-full flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform">
-                                <i class="fas fa-microchip text-2xl text-white"></i>
+                                class="group bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 w-48 flex-shrink-0">
+                                <div class="text-center">
+                                    <div
+                                        class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform">
+                                        <i class="fas fa-microchip text-2xl text-white"></i>
+                                    </div>
+                                    <h4 class="font-bold text-gray-800 text-lg mb-1">紫光展锐</h4>
+                                    <p class="text-sm text-gray-600">UNISOC</p>
+                                </div>
                             </div>
-                            <h4 class="font-bold text-gray-800 text-lg mb-1">瑞昱</h4>
-                            <p class="text-sm text-gray-600">Realtek</p>
-                        </div>
-                    </div>
-                    <div
-                        class="group bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100">
-                        <div class="text-center">
                             <div
-                                class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-full flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform">
-                                <i class="fas fa-microchip text-2xl text-white"></i>
+                                class="group bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 w-48 flex-shrink-0">
+                                <div class="text-center">
+                                    <div
+                                        class="w-16 h-16 bg-gradient-to-br from-red-500 to-red-600 rounded-full flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform">
+                                        <i class="fas fa-microchip text-2xl text-white"></i>
+                                    </div>
+                                    <h4 class="font-bold text-gray-800 text-lg mb-1">海思</h4>
+                                    <p class="text-sm text-gray-600">HiSilicon</p>
+                                </div>
                             </div>
-                            <h4 class="font-bold text-gray-800 text-lg mb-1">乐鑫</h4>
-                            <p class="text-sm text-gray-600">Espressif</p>
+                            <div
+                                class="group bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 w-48 flex-shrink-0">
+                                <div class="text-center">
+                                    <div
+                                        class="w-16 h-16 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-full flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform">
+                                        <i class="fas fa-microchip text-2xl text-white"></i>
+                                    </div>
+                                    <h4 class="font-bold text-gray-800 text-lg mb-1">瑞昱</h4>
+                                    <p class="text-sm text-gray-600">Realtek</p>
+                                </div>
+                            </div>
+                            <div
+                                class="group bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 w-48 flex-shrink-0">
+                                <div class="text-center">
+                                    <div
+                                        class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-full flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform">
+                                        <i class="fas fa-microchip text-2xl text-white"></i>
+                                    </div>
+                                    <h4 class="font-bold text-gray-800 text-lg mb-1">乐鑫</h4>
+                                    <p class="text-sm text-gray-600">Espressif</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1392,5 +1721,7 @@
         });
     </script>
 </body>
+
+</html>
 
 </html>
