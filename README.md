@@ -35,7 +35,6 @@ Root 目录: /
 
 ### 重要文件
 
-- `public/_redirects`: 处理 SPA 路由重定向
 - `tailwind.config.mjs`: Tailwind CSS 配置
 - `postcss.config.mjs`: PostCSS 配置
 
@@ -75,5 +74,4 @@ npm install
 
 确保：
 1. 构建输出目录设置为 `dist`
-2. `_redirects` 文件存在于 `public/` 目录
-3. DNS 配置正确指向 Cloudflare Pages
+2. DNS 配置正确指向 Cloudflare Pages
