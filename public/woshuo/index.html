@@ -380,173 +380,468 @@
         </div>
 
         <div class="container mx-auto px-6 relative z-10">
-            <!-- 背景装饰 -->
-            <div
-                class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-primary to-transparent opacity-5 rounded-full blur-3xl">
-            </div>
-            <div
-                class="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-secondary to-transparent opacity-5 rounded-full blur-3xl">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-6xl font-bold mb-6 section-title leading-tight">公司介绍</h2>
+                <p class="text-2xl text-gray-600 max-w-4xl mx-auto">专业的物联网整体解决方案提供商，引领智能化未来发展</p>
             </div>
 
-            <div class="container mx-auto px-6 relative z-10">
-                <div class="text-center mb-20">
-                    <h2 class="text-4xl md:text-6xl font-bold mb-6 section-title leading-tight">技术方案</h2>
-                    <p class="text-2xl text-gray-600 max-w-4xl mx-auto">专业的物联网解决方案，满足不同行业需求，引领智能化转型</p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- 通信模块 -->
-                    <div class="solution-card rounded-2xl p-8 h-auto min-h-[320px] flex flex-col">
-                        <!-- 产品图片 - 请替换为通信模块图片 -->
-                        <div class="relative mb-6 rounded-xl overflow-hidden">
-                            <!-- 建议使用: 2G/3G/4G模块、蓝牙模块、WiFi模块等通信设备图片 -->
-                            <div
-                                class="w-full h-40 bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center">
-                                <div class="text-center text-blue-600">
-                                    <i class="fas fa-signal text-4xl mb-2"></i>
-                                    <p class="text-sm font-medium">通信模块图片</p>
-                                    <p class="text-xs opacity-75">请添加相关产品图片</p>
+            <!-- 企业使命模块重新布局 -->
+            <div class="max-w-7xl mx-auto">
+                <!-- 企业使命主要介绍 -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+                    <!-- 左侧：企业使命与理念 -->
+                    <div class="space-y-8">
+                        <div class="premium-card rounded-3xl p-8">
+                            <div class="text-center mb-8">
+                                <div
+                                    class="w-20 h-20 bg-gradient-to-br from-primary to-blue-600 rounded-full flex items-center justify-center mb-4 mx-auto">
+                                    <i class="fas fa-bullseye text-3xl text-white"></i>
+                                </div>
+                                <h3 class="text-3xl font-bold text-gray-800 mb-4">企业使命</h3>
+                            </div>
+                            <p class="text-lg leading-relaxed text-gray-700 mb-6">
+                                上海沃硕通讯科技有限公司是一家专业的<span
+                                    class="text-primary font-bold">物联网整体解决方案</span>提供商，致力于成为物联网领域整体解决方案与服务的优秀企业。
+                            </p>
+                            <div class="bg-gradient-to-r from-blue-50 to-blue-100 rounded-xl p-6">
+                                <h4 class="text-xl font-bold text-primary mb-4">核心领域</h4>
+                                <div class="grid grid-cols-2 gap-3">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-wifi text-primary mr-2"></i>
+                                        <span class="text-primary font-semibold">物联网</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <i class="fas fa-home text-secondary mr-2"></i>
+                                        <span class="text-secondary font-semibold">智能家居</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <i class="fas fa-watch text-purple-600 mr-2"></i>
+                                        <span class="text-purple-600 font-semibold">穿戴设备</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <i class="fas fa-gamepad text-gold mr-2"></i>
+                                        <span class="text-gold font-semibold">儿童玩具</span>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent"></div>
                         </div>
-                        <h3 class="text-2xl font-bold mb-6 text-primary text-center">通信模块</h3>
-                        <ul class="text-gray-700 space-y-3 flex-grow text-lg">
-                            <li class="flex items-center"><i
-                                    class="fas fa-check-circle text-primary mr-3"></i>2G/3G/4G通信模块
-                            </li>
-                            <li class="flex items-center"><i
-                                    class="fas fa-check-circle text-primary mr-3"></i>Bluetooth模块(BLE/BT5.0)</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-primary mr-3"></i>WiFi模块
-                            </li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-primary mr-3"></i>LORA模块
-                            </li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-primary mr-3"></i>NB-IOT模块
-                            </li>
-                        </ul>
-                    </div>
 
-                    <!-- 传感器方案 -->
-                    <div class="solution-card rounded-2xl p-8 h-auto min-h-[320px] flex flex-col">
-                        <!-- 产品图片 - 请替换为传感器图片 -->
-                        <div class="relative mb-6 rounded-xl overflow-hidden">
-                            <!-- 建议使用: 温湿度传感器、运动传感器、GPS模块等传感器设备图片 -->
-                            <div
-                                class="w-full h-40 bg-gradient-to-br from-green-100 to-green-200 flex items-center justify-center">
-                                <div class="text-center text-green-600">
-                                    <i class="fas fa-microchip text-4xl mb-2"></i>
-                                    <p class="text-sm font-medium">传感器模块图片</p>
-                                    <p class="text-xs opacity-75">请添加相关产品图片</p>
+                        <!-- 企业愿景 -->
+                        <div class="premium-card rounded-3xl p-8">
+                            <div class="text-center mb-8">
+                                <div
+                                    class="w-20 h-20 bg-gradient-to-br from-gold to-yellow-600 rounded-full flex items-center justify-center mb-4 mx-auto">
+                                    <i class="fas fa-rocket text-3xl text-white"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold text-gray-800 mb-4">企业愿景</h3>
+                            </div>
+                            <p class="text-lg leading-relaxed text-gray-700 mb-6 text-center">
+                                致力于成为<span class="text-primary font-bold">全球无线通讯及物联网领域</span>整体解决方案与服务的优秀企业，引领智能化未来发展
+                            </p>
+
+                            <div class="grid grid-cols-2 gap-4 mt-6">
+                                <div
+                                    class="text-center p-4 bg-gradient-to-br from-primary to-blue-600 text-white rounded-xl">
+                                    <div class="text-2xl font-bold mb-1">10+</div>
+                                    <div class="text-sm">年行业深耕</div>
+                                </div>
+                                <div
+                                    class="text-center p-4 bg-gradient-to-br from-secondary to-green-600 text-white rounded-xl">
+                                    <div class="text-2xl font-bold mb-1">500+</div>
+                                    <div class="text-sm">成功案例</div>
+                                </div>
+                                <div
+                                    class="text-center p-4 bg-gradient-to-br from-gold to-yellow-600 text-white rounded-xl">
+                                    <div class="text-2xl font-bold mb-1">50+</div>
+                                    <div class="text-sm">合作伙伴</div>
+                                </div>
+                                <div
+                                    class="text-center p-4 bg-gradient-to-br from-purple-500 to-purple-600 text-white rounded-xl">
+                                    <div class="text-2xl font-bold mb-1">100%</div>
+                                    <div class="text-sm">客户满意度</div>
                                 </div>
                             </div>
-                            <div class="absolute inset-0 bg-gradient-to-t from-secondary/20 to-transparent"></div>
                         </div>
-                        <h3 class="text-2xl font-bold mb-6 text-secondary text-center">传感器方案</h3>
-                        <ul class="text-gray-700 space-y-3 flex-grow text-lg">
-                            <li class="flex items-center"><i class="fas fa-check-circle text-secondary mr-3"></i>温湿度传感器
-                            </li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-secondary mr-3"></i>运动传感器
-                            </li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-secondary mr-3"></i>光照传感器
-                            </li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-secondary mr-3"></i>气体传感器
-                            </li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-secondary mr-3"></i>GPS定位模块
-                            </li>
-                        </ul>
+
                     </div>
 
-                    <!-- 智能家居 -->
-                    <div class="solution-card rounded-2xl p-8 h-auto min-h-[320px] flex flex-col">
-                        <!-- 产品图片 -->
-                        <div class="relative mb-6 rounded-xl overflow-hidden">
-                            <img src="images/iot.jpg" alt="智能家居设备" class="w-full h-40 object-cover">
-                            <div class="absolute inset-0 bg-gradient-to-t from-purple-600/20 to-transparent"></div>
+                    <!-- 右侧：技术实力与业务覆盖 -->
+                    <div class="space-y-8">
+                        <!-- 技术实力 -->
+                        <div class="premium-card rounded-3xl p-8">
+                            <div class="text-center mb-8">
+                                <div
+                                    class="w-20 h-20 bg-gradient-to-br from-secondary to-green-600 rounded-full flex items-center justify-center mb-4 mx-auto">
+                                    <i class="fas fa-cogs text-3xl text-white"></i>
+                                </div>
+                                <h3 class="text-3xl font-bold text-gray-800 mb-4">技术实力</h3>
+                            </div>
+                            <p class="text-lg leading-relaxed text-gray-700 mb-6">
+                                公司拥有一支<span class="text-secondary font-bold">年轻、高效、优秀且经验丰富</span>的专业研发团队，不断开拓物联网行业应用市场。
+                            </p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-4">
+                                    <h5 class="font-bold text-primary mb-3">通信技术</h5>
+                                    <div class="space-y-2 text-sm">
+                                        <div class="flex items-center">
+                                            <i class="fas fa-check-circle text-primary mr-2"></i>
+                                            <span>2G/3G/4G通信模块</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <i class="fas fa-check-circle text-primary mr-2"></i>
+                                            <span>Bluetooth模块(BLE/BT5.0)</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <i class="fas fa-check-circle text-primary mr-2"></i>
+                                            <span>WiFi模块、LORA模块</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-4">
+                                    <h5 class="font-bold text-secondary mb-3">感知技术</h5>
+                                    <div class="space-y-2 text-sm">
+                                        <div class="flex items-center">
+                                            <i class="fas fa-check-circle text-secondary mr-2"></i>
+                                            <span>GPS模块、室内定位</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <i class="fas fa-check-circle text-secondary mr-2"></i>
+                                            <span>多类型传感器模块</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <i class="fas fa-check-circle text-secondary mr-2"></i>
+                                            <span>NB-IOT模块等</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <h3 class="text-2xl font-bold mb-6 text-purple-600 text-center">智能家居</h3>
-                        <ul class="text-gray-700 space-y-3 flex-grow text-lg">
-                            <li class="flex items-center"><i class="fas fa-check-circle text-purple-600 mr-3"></i>智能照明控制
-                            </li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-purple-600 mr-3"></i>智能安防系统
-                            </li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-purple-600 mr-3"></i>环境监控
-                            </li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-purple-600 mr-3"></i>家电控制
-                            </li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-purple-600 mr-3"></i>语音交互
-                            </li>
-                        </ul>
-                    </div>
 
-                    <!-- 工业物联网 -->
-                    <div class="solution-card rounded-2xl p-8 h-auto min-h-[320px] flex flex-col">
-                        <!-- 产品图片 -->
-                        <div class="relative mb-6 rounded-xl overflow-hidden">
-                            <img src="images/camera.jpg" alt="监控设备" class="w-full h-40 object-cover">
-                            <div class="absolute inset-0 bg-gradient-to-t from-red-600/20 to-transparent"></div>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-6 text-accent text-center">工业物联网</h3>
-                        <ul class="text-gray-700 space-y-3 flex-grow text-lg">
-                            <li class="flex items-center"><i class="fas fa-check-circle text-accent mr-3"></i>设备监控
-                            </li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-accent mr-3"></i>数据采集
-                            </li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-accent mr-3"></i>远程控制
-                            </li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-accent mr-3"></i>预测维护
-                            </li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-accent mr-3"></i>生产优化
-                            </li>
-                        </ul>
-                    </div>
+                        <!-- 业务覆盖 -->
+                        <div class="premium-card rounded-3xl p-8">
+                            <div class="text-center mb-8">
+                                <div
+                                    class="w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center mb-4 mx-auto">
+                                    <i class="fas fa-globe text-3xl text-white"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold text-gray-800 mb-4">业务覆盖</h3>
+                                <p class="text-gray-600 text-sm mb-6">
+                                    公司产品线覆盖通信模块、传感模块、蓝牙、GPS、WiFi、LORA、RFID、NB-IoT等，并提供多平台ARM/FPGA方案</p>
+                            </div>
 
-                    <!-- 穿戴设备 -->
-                    <div class="solution-card rounded-2xl p-8 h-auto min-h-[320px] flex flex-col">
-                        <!-- 产品图片 -->
-                        <div class="relative mb-6 rounded-xl overflow-hidden">
-                            <img src="images/watch.jpg" alt="智能手表" class="w-full h-40 object-cover">
-                            <div class="absolute inset-0 bg-gradient-to-t from-yellow-600/20 to-transparent"></div>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-6 text-yellow-600 text-center">穿戴设备</h3>
-                        <ul class="text-gray-700 space-y-3 flex-grow text-lg">
-                            <li class="flex items-center"><i class="fas fa-check-circle text-yellow-600 mr-3"></i>健康监测
-                            </li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-yellow-600 mr-3"></i>运动追踪
-                            </li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-yellow-600 mr-3"></i>定位服务
-                            </li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-yellow-600 mr-3"></i>消息提醒
-                            </li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-yellow-600 mr-3"></i>语音通话
-                            </li>
-                        </ul>
-                    </div>
+                            <!-- 业务领域网格 -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <!-- 第一列 -->
+                                <div class="space-y-3">
+                                    <div
+                                        class="flex items-center p-3 bg-gradient-to-r from-blue-50 to-blue-100 rounded-lg hover:from-blue-100 hover:to-blue-200 transition-all duration-300">
+                                        <i class="fas fa-mobile-alt text-primary mr-3 text-lg"></i>
+                                        <span class="text-primary font-semibold">智能手持终端</span>
+                                    </div>
+                                    <div
+                                        class="flex items-center p-3 bg-gradient-to-r from-green-50 to-green-100 rounded-lg hover:from-green-100 hover:to-green-200 transition-all duration-300">
+                                        <i class="fas fa-cash-register text-secondary mr-3 text-lg"></i>
+                                        <span class="text-secondary font-semibold">POS 机</span>
+                                    </div>
+                                    <div
+                                        class="flex items-center p-3 bg-gradient-to-r from-purple-50 to-purple-100 rounded-lg hover:from-purple-100 hover:to-purple-200 transition-all duration-300">
+                                        <i class="fas fa-robot text-purple-600 mr-3 text-lg"></i>
+                                        <span class="text-purple-600 font-semibold">广告机、机器人</span>
+                                    </div>
+                                    <div
+                                        class="flex items-center p-3 bg-gradient-to-r from-yellow-50 to-yellow-100 rounded-lg hover:from-yellow-100 hover:to-yellow-200 transition-all duration-300">
+                                        <i class="fas fa-home text-gold mr-3 text-lg"></i>
+                                        <span class="text-gold font-semibold">智能家居</span>
+                                    </div>
+                                    <div
+                                        class="flex items-center p-3 bg-gradient-to-r from-red-50 to-red-100 rounded-lg hover:from-red-100 hover:to-red-200 transition-all duration-300">
+                                        <i class="fas fa-industry text-accent mr-3 text-lg"></i>
+                                        <span class="text-accent font-semibold">工控与轨交</span>
+                                    </div>
+                                </div>
 
-                    <!-- 儿童玩具 -->
-                    <div class="solution-card rounded-2xl p-8 h-auto min-h-[320px] flex flex-col">
-                        <!-- 产品图片 -->
-                        <div class="relative mb-6 rounded-xl overflow-hidden">
-                            <img src="images/toys.jpg" alt="智能玩具" class="w-full h-40 object-cover">
-                            <div class="absolute inset-0 bg-gradient-to-t from-pink-600/20 to-transparent"></div>
+                                <!-- 第二列 -->
+                                <div class="space-y-3">
+                                    <div
+                                        class="flex items-center p-3 bg-gradient-to-r from-indigo-50 to-indigo-100 rounded-lg hover:from-indigo-100 hover:to-indigo-200 transition-all duration-300">
+                                        <i class="fas fa-car text-indigo-600 mr-3 text-lg"></i>
+                                        <span class="text-indigo-600 font-semibold">车载导航</span>
+                                    </div>
+                                    <div
+                                        class="flex items-center p-3 bg-gradient-to-r from-teal-50 to-teal-100 rounded-lg hover:from-teal-100 hover:to-teal-200 transition-all duration-300">
+                                        <i class="fas fa-shield-alt text-teal-600 mr-3 text-lg"></i>
+                                        <span class="text-teal-600 font-semibold">安防监控</span>
+                                    </div>
+                                    <div
+                                        class="flex items-center p-3 bg-gradient-to-r from-pink-50 to-pink-100 rounded-lg hover:from-pink-100 hover:to-pink-200 transition-all duration-300">
+                                        <i class="fas fa-heartbeat text-pink-600 mr-3 text-lg"></i>
+                                        <span class="text-pink-600 font-semibold">医疗与环境监测</span>
+                                    </div>
+                                    <div
+                                        class="flex items-center p-3 bg-gradient-to-r from-orange-50 to-orange-100 rounded-lg hover:from-orange-100 hover:to-orange-200 transition-all duration-300">
+                                        <i class="fas fa-graduation-cap text-orange-600 mr-3 text-lg"></i>
+                                        <span class="text-orange-600 font-semibold">教育培训</span>
+                                    </div>
+                                    <div
+                                        class="flex items-center p-3 bg-gradient-to-r from-cyan-50 to-cyan-100 rounded-lg hover:from-cyan-100 hover:to-cyan-200 transition-all duration-300">
+                                        <i class="fas fa-network-wired text-cyan-600 mr-3 text-lg"></i>
+                                        <span class="text-cyan-600 font-semibold">IoT（物联网）行业方案</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 技术能力总结 -->
+                            <div class="mt-6 p-4 bg-gradient-to-r from-gray-50 to-gray-100 rounded-xl">
+                                <div class="text-center">
+                                    <h4 class="font-bold text-gray-800 mb-3">
+                                        <i class="fas fa-microchip mr-2"></i>核心技术能力
+                                    </h4>
+                                    <div class="flex flex-wrap justify-center gap-2">
+                                        <span class="px-3 py-1 bg-primary text-white rounded-full text-sm">通信模块</span>
+                                        <span class="px-3 py-1 bg-secondary text-white rounded-full text-sm">传感模块</span>
+                                        <span class="px-3 py-1 bg-purple-600 text-white rounded-full text-sm">蓝牙</span>
+                                        <span class="px-3 py-1 bg-green-600 text-white rounded-full text-sm">GPS</span>
+                                        <span
+                                            class="px-3 py-1 bg-yellow-600 text-white rounded-full text-sm">WiFi</span>
+                                        <span class="px-3 py-1 bg-red-600 text-white rounded-full text-sm">LORA</span>
+                                        <span
+                                            class="px-3 py-1 bg-indigo-600 text-white rounded-full text-sm">RFID</span>
+                                        <span
+                                            class="px-3 py-1 bg-pink-600 text-white rounded-full text-sm">NB-IoT</span>
+                                        <span
+                                            class="px-3 py-1 bg-teal-600 text-white rounded-full text-sm">ARM/FPGA</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <h3 class="text-2xl font-bold mb-6 text-pink-600 text-center">儿童玩具</h3>
-                        <ul class="text-gray-700 space-y-3 flex-grow text-lg">
-                            <li class="flex items-center"><i class="fas fa-check-circle text-pink-600 mr-3"></i>智能互动
-                            </li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-pink-600 mr-3"></i>教育娱乐
-                            </li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-pink-600 mr-3"></i>安全定位
-                            </li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-pink-600 mr-3"></i>语音识别
-                            </li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-pink-600 mr-3"></i>远程监护
-                            </li>
-                        </ul>
+                    </div>
+                </div>
+
+
+                <!-- 产品展示画廊 -->
+                <div class="mt-16">
+                    <div class="text-center mb-12">
+                        <h3 class="text-3xl font-bold text-gray-800 mb-4">核心产品展示</h3>
+                        <p class="text-xl text-gray-600">专业的物联网产品，引领智能化未来</p>
+                    </div>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                        <div
+                            class="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300">
+                            <img src="images/iot.jpg" alt="物联网设备" class="w-full h-48 object-cover">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <div class="absolute bottom-4 left-4 text-white">
+                                    <h4 class="font-bold text-lg">物联网设备</h4>
+                                    <p class="text-sm opacity-90">IoT Solutions</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300">
+                            <img src="images/watch.jpg" alt="智能手表" class="w-full h-48 object-cover">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <div class="absolute bottom-4 left-4 text-white">
+                                    <h4 class="font-bold text-lg">智能手表</h4>
+                                    <p class="text-sm opacity-90">Smart Watch</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300">
+                            <img src="images/shouhuan.jpg" alt="智能手环" class="w-full h-48 object-cover">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <div class="absolute bottom-4 left-4 text-white">
+                                    <h4 class="font-bold text-lg">智能手环</h4>
+                                    <p class="text-sm opacity-90">Smart Band</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300">
+                            <img src="images/toys.jpg" alt="智能玩具" class="w-full h-48 object-cover">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <div class="absolute bottom-4 left-4 text-white">
+                                    <h4 class="font-bold text-lg">智能玩具</h4>
+                                    <p class="text-sm opacity-90">Smart Toys</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
     </section>
-    </div>
+
+    <!-- Solutions Section -->
+    <section id="solutions" class="py-24 bg-gradient-to-br from-white to-gray-50 relative overflow-hidden">
+        <!-- 背景装饰 -->
+        <div
+            class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-primary to-transparent opacity-5 rounded-full blur-3xl">
+        </div>
+        <div
+            class="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-secondary to-transparent opacity-5 rounded-full blur-3xl">
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-6xl font-bold mb-6 section-title leading-tight">技术方案</h2>
+                <p class="text-2xl text-gray-600 max-w-4xl mx-auto">专业的物联网解决方案，满足不同行业需求，引领智能化转型</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 通信模块 -->
+                <div class="solution-card rounded-2xl p-8 h-auto min-h-[320px] flex flex-col">
+                    <!-- 产品图片 - 请替换为通信模块图片 -->
+                    <div class="relative mb-6 rounded-xl overflow-hidden">
+                        <!-- 建议使用: 2G/3G/4G模块、蓝牙模块、WiFi模块等通信设备图片 -->
+                        <div
+                            class="w-full h-40 bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center">
+                            <div class="text-center text-blue-600">
+                                <i class="fas fa-signal text-4xl mb-2"></i>
+                                <p class="text-sm font-medium">通信模块图片</p>
+                                <p class="text-xs opacity-75">请添加相关产品图片</p>
+                            </div>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent"></div>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-6 text-primary text-center">通信模块</h3>
+                    <ul class="text-gray-700 space-y-3 flex-grow text-lg">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-primary mr-3"></i>2G/3G/4G通信模块
+                        </li>
+                        <li class="flex items-center"><i
+                                class="fas fa-check-circle text-primary mr-3"></i>Bluetooth模块(BLE/BT5.0)</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-primary mr-3"></i>WiFi模块
+                        </li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-primary mr-3"></i>LORA模块
+                        </li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-primary mr-3"></i>NB-IOT模块
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 传感器方案 -->
+                <div class="solution-card rounded-2xl p-8 h-auto min-h-[320px] flex flex-col">
+                    <!-- 产品图片 - 请替换为传感器图片 -->
+                    <div class="relative mb-6 rounded-xl overflow-hidden">
+                        <!-- 建议使用: 温湿度传感器、运动传感器、GPS模块等传感器设备图片 -->
+                        <div
+                            class="w-full h-40 bg-gradient-to-br from-green-100 to-green-200 flex items-center justify-center">
+                            <div class="text-center text-green-600">
+                                <i class="fas fa-microchip text-4xl mb-2"></i>
+                                <p class="text-sm font-medium">传感器模块图片</p>
+                                <p class="text-xs opacity-75">请添加相关产品图片</p>
+                            </div>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-secondary/20 to-transparent"></div>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-6 text-secondary text-center">传感器方案</h3>
+                    <ul class="text-gray-700 space-y-3 flex-grow text-lg">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-secondary mr-3"></i>温湿度传感器
+                        </li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-secondary mr-3"></i>运动传感器
+                        </li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-secondary mr-3"></i>光照传感器
+                        </li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-secondary mr-3"></i>气体传感器
+                        </li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-secondary mr-3"></i>GPS定位模块
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 智能家居 -->
+                <div class="solution-card rounded-2xl p-8 h-auto min-h-[320px] flex flex-col">
+                    <!-- 产品图片 -->
+                    <div class="relative mb-6 rounded-xl overflow-hidden">
+                        <img src="images/iot.jpg" alt="智能家居设备" class="w-full h-40 object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-purple-600/20 to-transparent"></div>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-6 text-purple-600 text-center">智能家居</h3>
+                    <ul class="text-gray-700 space-y-3 flex-grow text-lg">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-purple-600 mr-3"></i>智能照明控制
+                        </li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-purple-600 mr-3"></i>智能安防系统
+                        </li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-purple-600 mr-3"></i>环境监控
+                        </li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-purple-600 mr-3"></i>家电控制
+                        </li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-purple-600 mr-3"></i>语音交互
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 工业物联网 -->
+                <div class="solution-card rounded-2xl p-8 h-auto min-h-[320px] flex flex-col">
+                    <!-- 产品图片 -->
+                    <div class="relative mb-6 rounded-xl overflow-hidden">
+                        <img src="images/camera.jpg" alt="监控设备" class="w-full h-40 object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-red-600/20 to-transparent"></div>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-6 text-accent text-center">工业物联网</h3>
+                    <ul class="text-gray-700 space-y-3 flex-grow text-lg">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-accent mr-3"></i>设备监控
+                        </li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-accent mr-3"></i>数据采集
+                        </li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-accent mr-3"></i>远程控制
+                        </li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-accent mr-3"></i>预测维护
+                        </li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-accent mr-3"></i>生产优化
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 穿戴设备 -->
+                <div class="solution-card rounded-2xl p-8 h-auto min-h-[320px] flex flex-col">
+                    <!-- 产品图片 -->
+                    <div class="relative mb-6 rounded-xl overflow-hidden">
+                        <img src="images/watch.jpg" alt="智能手表" class="w-full h-40 object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-yellow-600/20 to-transparent"></div>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-6 text-yellow-600 text-center">穿戴设备</h3>
+                    <ul class="text-gray-700 space-y-3 flex-grow text-lg">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-yellow-600 mr-3"></i>健康监测
+                        </li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-yellow-600 mr-3"></i>运动追踪
+                        </li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-yellow-600 mr-3"></i>定位服务
+                        </li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-yellow-600 mr-3"></i>消息提醒
+                        </li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-yellow-600 mr-3"></i>语音通话
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 儿童玩具 -->
+                <div class="solution-card rounded-2xl p-8 h-auto min-h-[320px] flex flex-col">
+                    <!-- 产品图片 -->
+                    <div class="relative mb-6 rounded-xl overflow-hidden">
+                        <img src="images/toys.jpg" alt="智能玩具" class="w-full h-40 object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-pink-600/20 to-transparent"></div>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-6 text-pink-600 text-center">儿童玩具</h3>
+                    <ul class="text-gray-700 space-y-3 flex-grow text-lg">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-pink-600 mr-3"></i>智能互动
+                        </li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-pink-600 mr-3"></i>教育娱乐
+                        </li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-pink-600 mr-3"></i>安全定位
+                        </li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-pink-600 mr-3"></i>语音识别
+                        </li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-pink-600 mr-3"></i>远程监护
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        </div>
     </section>
 
     <!-- Partners Section -->
